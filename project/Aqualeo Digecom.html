@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aqualeo Digecom — IT Consulting & Digital Commerce</title>
+<link rel="icon" type="image/avif" href="assets/favicon.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit}
+img{max-width:100%;display:block}
+
+/* ══════════ THEME TOKENS ══════════ */
+
+/* DARK (default) */
+body.theme-dark{
+  --bg:#04090F;--bg2:#071220;--bg3:#0A1A2E;
+  --surface:#0D1F35;--surface2:rgba(255,255,255,.04);
+  --fg:#ECF2FF;--fg2:#7A9CC0;--fg3:#3A5570;
+  --accent:#00C8FF;--accent2:#2563EB;
+  --glow:rgba(0,200,255,.18);
+  --border:rgba(0,200,255,.14);--border2:rgba(255,255,255,.07);
+  --nav:rgba(4,9,15,.82);
+  --btn:linear-gradient(135deg,#00C8FF 0%,#2563EB 100%);--btn-fg:#04090F;
+  --btn2-bg:rgba(255,255,255,.06);--btn2-fg:#ECF2FF;--btn2-border:rgba(255,255,255,.14);
+  --logo:url(assets/logo-dark.avif);
+  --grid-line:rgba(255,255,255,.04);
+}
+
+/* LIGHT */
+body.theme-light{
+  --bg:#FFFFFF;--bg2:#F4F7FB;--bg3:#0A1A2E;
+  --surface:#FFFFFF;--surface2:rgba(0,0,0,.03);
+  --fg:#0A1A2E;--fg2:#475569;--fg3:#94A3B8;
+  --accent:#0EA5E9;--accent2:#1E40AF;
+  --glow:rgba(14,165,233,.12);
+  --border:rgba(14,165,233,.18);--border2:#E5EAF0;
+  --nav:rgba(255,255,255,.85);
+  --btn:linear-gradient(135deg,#0EA5E9 0%,#1E40AF 100%);--btn-fg:#FFFFFF;
+  --btn2-bg:transparent;--btn2-fg:#0A1A2E;--btn2-border:#CBD5E1;
+  --logo:url(assets/logo-dark.png);
+  --grid-line:rgba(0,0,0,.04);
+}
+
+/* EARTHY */
+body.theme-earth{
+  --bg:#F4EDE0;--bg2:#E8DDC8;--bg3:#3A2F22;
+  --surface:#FFF8EC;--surface2:rgba(58,47,34,.04);
+  --fg:#2A2118;--fg2:#6B5944;--fg3:#A89377;
+  --accent:#C2410C;--accent2:#7C2D12;
+  --glow:rgba(194,65,12,.12);
+  --border:rgba(194,65,12,.2);--border2:#D6C9B0;
+  --nav:rgba(244,237,224,.88);
+  --btn:linear-gradient(135deg,#C2410C 0%,#7C2D12 100%);--btn-fg:#FFF8EC;
+  --btn2-bg:transparent;--btn2-fg:#2A2118;--btn2-border:#A89377;
+  --logo:url(assets/logo-dark.png);
+  --grid-line:rgba(58,47,34,.05);
+}
+
+/* ══════════ FONT SIZE SCALE ══════════ */
+body.fs-1{--scale:0.875;}
+body.fs-2{--scale:1;}
+body.fs-3{--scale:1.125;}
+body.fs-4{--scale:1.25;}
+
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+  font-size:calc(16px * var(--scale));
+  transition:background .35s,color .35s;
+}
+body[dir="rtl"]{font-family:'Noto Sans Arabic','DM Sans',sans-serif;}
+body[dir="rtl"] .display{font-family:'Noto Kufi Arabic','Space Grotesk',sans-serif;}
+
+.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;}
+
+/* ══════════ NAV ══════════ */
+nav{
+  position:fixed;inset:0 0 auto 0;z-index:200;
+  height:calc(72px * var(--scale));padding:0 clamp(20px,5vw,80px);
+  background:var(--nav);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo{
+  height:calc(36px * var(--scale));width:auto;
+  background:var(--logo) center/contain no-repeat;
+  aspect-ratio:808/346;
+  flex-shrink:0;
+}
+.nav-links{display:flex;gap:calc(28px * var(--scale));align-items:center;}
+.nav-links a{
+  font-size:calc(14px * var(--scale));font-weight:500;color:var(--fg2);
+  transition:color .2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;inset:auto 0 -4px 0;height:1px;
+  background:var(--accent);transform:scaleX(0);
+  transition:transform .2s;transform-origin:left;
+}
+.nav-links a:hover{color:var(--fg);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-icon-btn{
+  width:calc(38px * var(--scale));height:calc(38px * var(--scale));
+  border-radius:8px;border:1px solid var(--border2);
+  background:var(--surface2);color:var(--fg2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:calc(13px * var(--scale));font-weight:600;
+  transition:all .15s;
+}
+.nav-icon-btn:hover{border-color:var(--accent);color:var(--accent);}
+.nav-btn{
+  padding:calc(9px * var(--scale)) calc(22px * var(--scale));
+  border-radius:6px;border:none;
+  background:var(--btn);color:var(--btn-fg);
+  font-size:calc(13px * var(--scale));font-weight:600;
+  transition:opacity .2s,transform .15s;
+}
+.nav-btn:hover{opacity:.88;transform:translateY(-1px);}
+
+/* ══════════ HERO ══════════ */
+.hero{
+  min-height:100svh;
+  padding:calc(120px * var(--scale)) clamp(20px,5vw,80px) calc(80px * var(--scale));
+  display:flex;align-items:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 90% 80% at 55% 40%,black 20%,transparent 80%);
+  pointer-events:none;
+}
+.hero-orb{
+  position:absolute;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,var(--glow) 0%,transparent 70%);
+}
+.hero-orb.o1{width:900px;height:900px;top:-15%;right:-15%;}
+.hero-orb.o2{width:500px;height:500px;bottom:-10%;left:10%;}
+body[dir="rtl"] .hero-orb.o1{right:auto;left:-15%;}
+body[dir="rtl"] .hero-orb.o2{left:auto;right:10%;}
+
+.hero-inner{
+  position:relative;z-index:2;width:100%;
+  display:grid;grid-template-columns:1fr 460px;gap:60px;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);
+  font-size:calc(12px * var(--scale));font-weight:500;color:var(--accent);
+  letter-spacing:.07em;text-transform:uppercase;margin-bottom:28px;
+}
+.hero-badge-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+  animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero h1{
+  font-size:calc(clamp(48px,6vw,84px) * var(--scale));
+  font-weight:700;line-height:1.02;margin-bottom:24px;
+}
+.hero h1 .hi{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub{
+  font-size:calc(17px * var(--scale));color:var(--fg2);
+  line-height:1.72;max-width:520px;margin-bottom:40px;font-weight:300;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+.btn-primary{
+  padding:calc(13px * var(--scale)) calc(30px * var(--scale));
+  border-radius:7px;border:none;
+  background:var(--btn);color:var(--btn-fg);
+  font-size:calc(14px * var(--scale));font-weight:600;
+  box-shadow:0 0 28px var(--glow);
+  transition:transform .2s,box-shadow .2s,opacity .2s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 36px var(--glow);}
+.btn-secondary{
+  padding:calc(13px * var(--scale)) calc(30px * var(--scale));
+  border-radius:7px;border:1px solid var(--btn2-border);
+  background:var(--btn2-bg);color:var(--btn2-fg);
+  font-size:calc(14px * var(--scale));font-weight:500;
+  transition:border-color .2s,background .2s;
+}
+.btn-secondary:hover{border-color:var(--accent);background:var(--surface2);}
+.hero-stats{display:flex;gap:44px;flex-wrap:wrap;}
+.stat-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:calc(38px * var(--scale));font-weight:700;
+  letter-spacing:-.04em;line-height:1;color:var(--fg);
+}
+.stat-label{font-size:calc(13px * var(--scale));color:var(--fg2);margin-top:4px;}
+
+.hero-right{position:relative;height:calc(420px * var(--scale));}
+.hcard{
+  position:absolute;background:var(--surface);
+  border:1px solid var(--border);border-radius:12px;
+  padding:22px 24px;transition:transform .3s ease;
+}
+.hcard:hover{transform:translateY(-4px);}
+.hcard.c1{top:0;left:20px;right:0;}
+.hcard.c2{bottom:0;left:0;width:54%;top:58%;}
+.hcard.c3{bottom:0;right:0;width:44%;top:64%;}
+.hcard-eyebrow{font-size:calc(11px * var(--scale));font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-bottom:10px;}
+.hcard-big{font-family:'Space Grotesk',sans-serif;font-size:calc(28px * var(--scale));font-weight:700;letter-spacing:-.03em;color:var(--fg);}
+.hcard-sub{font-size:calc(13px * var(--scale));color:var(--fg2);margin-top:4px;}
+.hcard-bar{height:3px;background:var(--border2);margin-top:18px;border-radius:2px;}
+.hcard-fill{height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:72%;border-radius:2px;}
+.hcard-stars{color:var(--accent);font-size:calc(16px * var(--scale));letter-spacing:2px;margin-top:4px;}
+
+/* ══════════ MARQUEE ══════════ */
+.marquee-wrap{
+  padding:22px 0;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
+  overflow:hidden;position:relative;background:var(--bg);
+}
+.marquee-wrap::before,.marquee-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;
+}
+.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
+.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
+.marquee-track{display:flex;gap:64px;width:max-content;animation:marquee 28s linear infinite;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.marquee-track:hover{animation-play-state:paused;}
+.mlogo{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:calc(14px * var(--scale));font-weight:600;
+  letter-spacing:.04em;color:var(--fg3);white-space:nowrap;
+  display:flex;align-items:center;gap:8px;transition:color .2s;
+}
+.mlogo:hover{color:var(--fg2);}
+.mlogo-dot{width:6px;height:6px;border-radius:50%;background:var(--border);}
+
+/* ══════════ SECTIONS ══════════ */
+.section{padding:calc(96px * var(--scale)) clamp(20px,5vw,80px);}
+.section.alt{background:var(--bg2);}
+.sec-header{margin-bottom:calc(56px * var(--scale));}
+.sec-eyebrow{
+  font-size:calc(11px * var(--scale));font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.sec-eyebrow::before{content:'';width:24px;height:1px;background:var(--accent);}
+.sec-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:calc(clamp(30px,3vw,46px) * var(--scale));
+  font-weight:700;line-height:1.08;letter-spacing:-.03em;max-width:560px;color:var(--fg);
+}
+.sec-sub{
+  font-size:calc(15px * var(--scale));color:var(--fg2);
+  max-width:480px;line-height:1.72;margin-top:12px;font-weight:300;
+}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.svc{
+  background:var(--bg);padding:calc(40px * var(--scale)) calc(36px * var(--scale));
+  position:relative;overflow:hidden;cursor:pointer;transition:background .2s;
+}
+.section.alt .svc{background:var(--bg2);}
+.svc:hover{background:var(--surface);}
+.svc-top-line{
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  transform:scaleX(0);transition:transform .3s;transform-origin:left;
+}
+.svc:hover .svc-top-line{transform:scaleX(1);}
+.svc-icon-wrap{
+  width:calc(50px * var(--scale));height:calc(50px * var(--scale));
+  border-radius:10px;background:var(--surface2);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:calc(24px * var(--scale));margin-bottom:24px;
+  transition:transform .25s;
+}
+.svc:hover .svc-icon-wrap{transform:scale(1.06);}
+.svc-n{font-size:calc(11px * var(--scale));font-weight:700;color:var(--fg3);letter-spacing:.1em;margin-bottom:8px;}
+.svc-name{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:calc(21px * var(--scale));font-weight:600;
+  line-height:1.2;margin-bottom:10px;letter-spacing:-.02em;color:var(--fg);
+}
+.svc-desc{font-size:calc(14px * var(--scale));color:var(--fg2);line-height:1.7;}
+.svc-link{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:24px;font-size:calc(13px * var(--scale));font-weight:600;color:var(--accent);
+  transition:gap .2s;
+}
+.svc:hover .svc-link{gap:10px;}
+
+/* TECH PILLS */
+.tech{
+  padding:calc(60px * var(--scale)) clamp(20px,5vw,80px);
+  border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
+}
+.tech-inner{display:flex;align-items:center;gap:48px;flex-wrap:wrap;}
+.tech-label{
+  font-size:calc(12px * var(--scale));font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--fg3);min-width:120px;
+}
+.tech-pills{display:flex;flex-wrap:wrap;gap:10px;}
+.tech-pill{
+  padding:7px 16px;border-radius:100px;border:1px solid var(--border);
+  font-size:calc(13px * var(--scale));font-weight:500;color:var(--fg2);
+  transition:border-color .2s,color .2s;
+}
+.tech-pill:hover{border-color:var(--accent);color:var(--accent);}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.why-quote-box{
+  margin-top:32px;padding:24px 28px;
+  border-left:3px solid var(--accent);background:var(--surface2);
+  border-radius:0 8px 8px 0;
+}
+body[dir="rtl"] .why-quote-box{border-left:none;border-right:3px solid var(--accent);border-radius:8px 0 0 8px;}
+.why-quote-text{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:calc(17px * var(--scale));font-style:italic;line-height:1.55;color:var(--fg);
+}
+.why-quote-attr{font-size:calc(13px * var(--scale));color:var(--fg3);margin-top:10px;}
+.pillar{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:calc(28px * var(--scale)) 0;border-bottom:1px solid var(--border2);
+  transition:padding-left .2s;
+}
+.pillar:hover{padding-left:6px;}
+body[dir="rtl"] .pillar:hover{padding-left:0;padding-right:6px;}
+.pillar-num{font-family:'Space Grotesk',sans-serif;font-size:calc(12px * var(--scale));font-weight:700;color:var(--accent);flex-shrink:0;padding-top:3px;}
+.pillar-title{font-family:'Space Grotesk',sans-serif;font-size:calc(18px * var(--scale));font-weight:600;margin-bottom:6px;letter-spacing:-.02em;color:var(--fg);}
+.pillar-text{font-size:calc(14px * var(--scale));color:var(--fg2);line-height:1.7;}
+
+/* CASES */
+.cases-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px;}
+.cases-all{
+  font-size:calc(14px * var(--scale));font-weight:500;color:var(--accent);
+  display:flex;align-items:center;gap:6px;
+  border-bottom:1px solid transparent;transition:border-color .2s;
+}
+.cases-all:hover{border-color:var(--accent);}
+.cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.case{
+  background:var(--surface);overflow:hidden;cursor:pointer;
+  transition:transform .25s;border:1px solid var(--border);border-radius:8px;
+}
+.case:hover{transform:translateY(-5px);}
+.case-thumb{
+  height:calc(190px * var(--scale));background:var(--bg2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:calc(52px * var(--scale));position:relative;overflow:hidden;
+}
+.case-body{padding:24px;}
+.case-tag{font-size:calc(11px * var(--scale));font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+.case-title{font-family:'Space Grotesk',sans-serif;font-size:calc(19px * var(--scale));font-weight:600;line-height:1.3;margin-bottom:8px;letter-spacing:-.02em;color:var(--fg);}
+.case-desc{font-size:calc(13px * var(--scale));color:var(--fg2);line-height:1.65;}
+
+/* LOCATIONS */
+.locations{
+  padding:calc(80px * var(--scale)) clamp(20px,5vw,80px);background:var(--bg3);
+  display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;
+}
+.locations *{color:rgba(255,255,255,.85);}
+.locations .sec-eyebrow{color:rgba(255,255,255,.45);}
+.locations .sec-eyebrow::before{background:rgba(255,255,255,.3);}
+.loc-title{font-family:'Space Grotesk',sans-serif;font-size:calc(clamp(26px,3vw,40px) * var(--scale));font-weight:700;letter-spacing:-.03em;margin-bottom:20px;color:#fff;}
+.loc-chips{display:flex;gap:12px;flex-wrap:wrap;}
+.loc-chip{
+  padding:9px 20px;border:1px solid rgba(255,255,255,.18);border-radius:6px;
+  font-size:calc(14px * var(--scale));font-weight:500;color:rgba(255,255,255,.7);
+  transition:border-color .2s,color .2s;
+}
+.loc-chip:hover{border-color:var(--accent);color:var(--accent);}
+.loc-contact{text-align:right;}
+body[dir="rtl"] .loc-contact{text-align:left;}
+.loc-contact a{display:block;font-size:calc(15px * var(--scale));color:rgba(255,255,255,.6);line-height:2.2;transition:color .2s;}
+.loc-contact a:hover{color:var(--accent);}
+
+/* CTA BAND */
+.cta-band{
+  padding:calc(80px * var(--scale)) clamp(20px,5vw,80px);
+  display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
+  border-top:1px solid var(--border2);
+}
+.cta-band-text{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:calc(clamp(22px,2.5vw,34px) * var(--scale));font-weight:700;
+  letter-spacing:-.03em;max-width:520px;line-height:1.2;color:var(--fg);
+}
+
+/* FOOTER */
+footer{
+  padding:48px clamp(20px,5vw,80px);background:var(--bg2);
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+  border-top:1px solid var(--border2);
+}
+.foot-logo{
+  height:calc(40px * var(--scale));width:auto;
+  background:var(--logo) center/contain no-repeat;
+  aspect-ratio:808/346;margin-bottom:14px;
+}
+body[dir="rtl"] .foot-logo{background-position:right center;}
+.foot-tag{font-size:calc(13px * var(--scale));color:var(--fg3);line-height:1.7;max-width:240px;}
+.foot-col-title{font-size:calc(12px * var(--scale));font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-bottom:14px;}
+.foot-links{list-style:none;}
+.foot-links li{margin-bottom:8px;}
+.foot-links a{font-size:calc(13px * var(--scale));color:var(--fg3);transition:color .2s;}
+.foot-links a:hover{color:var(--accent);}
+.foot-bottom{
+  padding:24px clamp(20px,5vw,80px);background:var(--bg);
+  border-top:1px solid var(--border2);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+}
+.foot-copy{font-size:calc(13px * var(--scale));color:var(--fg3);}
+
+/* ══════════ NAV DROPDOWNS ══════════ */
+.nav-dd{position:relative;}
+.nav-dd-btn{
+  width:auto;min-width:calc(40px * var(--scale));height:calc(38px * var(--scale));
+  padding:0 calc(12px * var(--scale));
+  border-radius:8px;border:1px solid var(--border2);
+  background:var(--surface2);color:var(--fg2);
+  display:flex;align-items:center;gap:6px;
+  font-size:calc(12px * var(--scale));font-weight:600;
+  transition:all .15s;
+}
+.nav-dd-btn:hover{border-color:var(--accent);color:var(--accent);}
+.nav-dd-btn .caret{font-size:9px;opacity:.6;}
+.nav-dd-menu{
+  position:absolute;top:calc(100% + 8px);right:0;
+  background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  box-shadow:0 12px 40px rgba(0,0,0,.2);
+  padding:6px;min-width:180px;z-index:300;
+  display:none;
+}
+body[dir="rtl"] .nav-dd-menu{right:auto;left:0;}
+.nav-dd.open .nav-dd-menu{display:block;}
+.nav-dd-item{
+  display:flex;align-items:center;gap:10px;width:100%;
+  padding:9px 12px;border-radius:6px;border:none;background:transparent;
+  font-size:calc(13px * var(--scale));font-weight:500;color:var(--fg2);
+  text-align:left;transition:background .15s,color .15s;
+}
+body[dir="rtl"] .nav-dd-item{text-align:right;}
+.nav-dd-item:hover{background:var(--surface2);color:var(--fg);}
+.nav-dd-item.active{color:var(--accent);background:var(--surface2);}
+.nav-dd-item .a11y-swatch{width:14px;height:14px;border-radius:50%;flex-shrink:0;border:1px solid rgba(0,0,0,.1);}
+.nav-dd-item .check{margin-left:auto;color:var(--accent);}
+body[dir="rtl"] .nav-dd-item .check{margin-left:0;margin-right:auto;}
+.a11y-swatch{width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,0,.1);}
+.a11y-btn{
+  padding:9px 8px;border-radius:8px;border:1px solid var(--border2);
+  background:var(--surface2);color:var(--fg2);
+  font-size:12px;font-weight:600;line-height:1.2;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  transition:all .15s;
+}
+.a11y-btn:hover{border-color:var(--accent);color:var(--fg);}
+.a11y-btn.active{background:var(--btn);color:var(--btn-fg);border-color:transparent;}
+.a11y-swatch{width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,0,.1);}
+.a11y-fs-num{font-family:'Space Grotesk',sans-serif;font-weight:700;}
+.a11y-fs-1{font-size:11px;}
+.a11y-fs-2{font-size:13px;}
+.a11y-fs-3{font-size:15px;}
+.a11y-fs-4{font-size:17px;}
+
+/* fade-up */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .nav-links{display:none;}
+  .why-grid,.locations{grid-template-columns:1fr;gap:32px;}
+  footer{grid-template-columns:1fr 1fr;}
+  .svc-grid{grid-template-columns:1fr;}
+  .cases-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body class="theme-dark fs-2" dir="ltr">
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" aria-label="Aqualeo Digecom"></a>
+  <div class="nav-links">
+    <a href="services.html" data-i18n="nav_services">Services</a>
+    <a href="solutions.html" data-i18n="nav_solutions">Solutions</a>
+    <a href="case-studies.html" data-i18n="nav_cases">Case Studies</a>
+    <a href="about.html" data-i18n="nav_about">About</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-dd" id="dd-theme">
+      <button class="nav-dd-btn" aria-label="Theme">
+        <span id="dd-theme-icon" class="a11y-swatch" style="width:14px;height:14px;background:#04090F"></span>
+        <span class="caret">▾</span>
+      </button>
+      <div class="nav-dd-menu">
+        <button class="nav-dd-item" data-theme="dark"><span class="a11y-swatch" style="background:#04090F"></span><span data-i18n="theme_dark">Dark</span></button>
+        <button class="nav-dd-item" data-theme="light"><span class="a11y-swatch" style="background:#FFFFFF;border-color:#CBD5E1"></span><span data-i18n="theme_light">Light</span></button>
+        <button class="nav-dd-item" data-theme="earth"><span class="a11y-swatch" style="background:#C2410C"></span><span data-i18n="theme_earth">Earthy</span></button>
+      </div>
+    </div>
+    <div class="nav-dd" id="dd-fs">
+      <button class="nav-dd-btn" aria-label="Font Size">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;">A<sup style="font-size:.7em">A</sup></span>
+        <span class="caret">▾</span>
+      </button>
+      <div class="nav-dd-menu">
+        <button class="nav-dd-item" data-fs="1"><span style="font-size:11px;font-weight:700;">A</span><span>Small</span></button>
+        <button class="nav-dd-item" data-fs="2"><span style="font-size:13px;font-weight:700;">A</span><span>Medium</span></button>
+        <button class="nav-dd-item" data-fs="3"><span style="font-size:15px;font-weight:700;">A</span><span>Large</span></button>
+        <button class="nav-dd-item" data-fs="4"><span style="font-size:17px;font-weight:700;">A</span><span>Extra Large</span></button>
+      </div>
+    </div>
+    <div class="nav-dd" id="dd-lang">
+      <button class="nav-dd-btn" aria-label="Language">
+        <span id="dd-lang-label">EN</span>
+        <span class="caret">▾</span>
+      </button>
+      <div class="nav-dd-menu">
+        <button class="nav-dd-item" data-lang="en">🇬🇧 English</button>
+        <button class="nav-dd-item" data-lang="ar">🇸🇦 العربية</button>
+        <button class="nav-dd-item" data-lang="fr">🇫🇷 Français</button>
+        <button class="nav-dd-item" data-lang="es">🇪🇸 Español</button>
+      </div>
+    </div>
+    <button class="nav-btn" data-i18n="nav_cta">Get in Touch</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb o1"></div>
+  <div class="hero-orb o2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span><span data-i18n="hero_badge">Trusted IT &amp; Digital Partner</span></div>
+      <h1 class="display"><span data-i18n="hero_h1_a">Smarter Tech.</span><br><span class="hi" data-i18n="hero_h1_b">Faster Growth.</span><br><span data-i18n="hero_h1_c">Better Outcomes.</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">From strategy to operations — we help businesses across London, Dubai &amp; Bangalore scale with confidence through IT consulting, digital commerce and staff augmentation.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" data-i18n="hero_cta_main">Let's Connect →</button>
+        <button class="btn-secondary" data-i18n="hero_cta_sec">View Case Studies</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">50+</div><div class="stat-label" data-i18n="stat_projects">Projects Delivered</div></div>
+        <div><div class="stat-num">20+</div><div class="stat-label" data-i18n="stat_clients">Global Clients</div></div>
+        <div><div class="stat-num">100+</div><div class="stat-label" data-i18n="stat_years">Yrs Combined Exp.</div></div>
+        <div><div class="stat-num">3</div><div class="stat-label" data-i18n="stat_offices">Global Offices</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hcard c1">
+        <div class="hcard-eyebrow" data-i18n="hcard1_eyebrow">Active Engagements</div>
+        <div class="hcard-big" data-i18n="hcard1_big">18 Projects</div>
+        <div class="hcard-sub" data-i18n="hcard1_sub">↑ 3 new this quarter · London · Dubai · Bangalore</div>
+        <div class="hcard-bar"><div class="hcard-fill"></div></div>
+      </div>
+      <div class="hcard c2">
+        <div class="hcard-eyebrow" data-i18n="hcard2_eyebrow">Client Rating</div>
+        <div class="hcard-stars">★★★★★</div>
+        <div class="hcard-sub" data-i18n="hcard2_sub">Top rated · 20+ clients</div>
+      </div>
+      <div class="hcard c3">
+        <div class="hcard-eyebrow" data-i18n="hcard3_eyebrow">Founded</div>
+        <div class="hcard-big">2018</div>
+        <div class="hcard-sub" data-i18n="hcard3_sub">6+ years delivering</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="mlogo"><span class="mlogo-dot"></span>Shopify Partners</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>AWS Cloud</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Microsoft Azure</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Google Cloud</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Salesforce</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>HubSpot</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>WooCommerce</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Magento</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Stripe</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Surrey ADHD Clinic</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Shopify Partners</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>AWS Cloud</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Microsoft Azure</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Google Cloud</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Salesforce</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>HubSpot</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>WooCommerce</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Magento</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Stripe</span>
+    <span class="mlogo"><span class="mlogo-dot"></span>Surrey ADHD Clinic</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section alt fade-up">
+  <div class="sec-header">
+    <div class="sec-eyebrow" data-i18n="svc_eyebrow">What We Do</div>
+    <div class="sec-title display" data-i18n="svc_title">Comprehensive digital solutions for ambitious businesses</div>
+    <div class="sec-sub" data-i18n="svc_sub">Expert IT Consulting, Digital Commerce and Staff Augmentation — tailored to your growth stage.</div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc">
+      <div class="svc-top-line"></div>
+      <div class="svc-icon-wrap">💡</div>
+      <div class="svc-n">01</div>
+      <div class="svc-name display" data-i18n="svc1_name">IT &amp; Business Consulting</div>
+      <div class="svc-desc" data-i18n="svc1_desc">Strategic technology roadmaps, architecture reviews, and digital transformation programmes. We align tech with your business goals and deliver measurable outcomes.</div>
+      <div class="svc-link" data-i18n="svc_link">Explore service →</div>
+    </div>
+    <div class="svc">
+      <div class="svc-top-line"></div>
+      <div class="svc-icon-wrap">🛒</div>
+      <div class="svc-n">02</div>
+      <div class="svc-name display" data-i18n="svc2_name">Digital Commerce</div>
+      <div class="svc-desc" data-i18n="svc2_desc">End-to-end eCommerce across Shopify, WooCommerce, Amazon, eBay and custom platforms. From setup to scaling — driving digital revenue at every stage.</div>
+      <div class="svc-link" data-i18n="svc_link">Explore service →</div>
+    </div>
+    <div class="svc">
+      <div class="svc-top-line"></div>
+      <div class="svc-icon-wrap">👥</div>
+      <div class="svc-n">03</div>
+      <div class="svc-name display" data-i18n="svc3_name">Staff Augmentation</div>
+      <div class="svc-desc" data-i18n="svc3_desc">Scale your team on-demand with pre-vetted engineers, architects, and digital specialists who integrate seamlessly into your workflows and culture.</div>
+      <div class="svc-link" data-i18n="svc_link">Explore service →</div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH -->
+<div class="tech fade-up">
+  <div class="tech-inner">
+    <div class="tech-label" data-i18n="tech_label">Tech Stack</div>
+    <div class="tech-pills">
+      <div class="tech-pill">React / Next.js</div>
+      <div class="tech-pill">Node.js</div>
+      <div class="tech-pill">Python</div>
+      <div class="tech-pill">AWS</div>
+      <div class="tech-pill">Azure</div>
+      <div class="tech-pill">GCP</div>
+      <div class="tech-pill">Shopify</div>
+      <div class="tech-pill">Salesforce</div>
+      <div class="tech-pill">PostgreSQL</div>
+      <div class="tech-pill">Docker / K8s</div>
+      <div class="tech-pill">AI / ML</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="section fade-up">
+  <div class="why-grid">
+    <div>
+      <div class="sec-eyebrow" data-i18n="why_eyebrow">Why Aqualeo</div>
+      <div class="sec-title display" data-i18n="why_title">Crafting strategies that fuel long-term success</div>
+      <div class="sec-sub" style="margin-top:16px;" data-i18n="why_sub">We combine deep domain expertise with agile delivery — helping you move fast and build things that last across every market you serve.</div>
+      <div class="why-quote-box">
+        <div class="why-quote-text" data-i18n="why_quote">"Aqualeo transformed our online presence, driving engagement and boosting conversions significantly. Highly recommended for digital growth."</div>
+        <div class="why-quote-attr" data-i18n="why_quote_attr">— Pulmonologist, United Kingdom · ★★★★★</div>
+      </div>
+    </div>
+    <div>
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div>
+          <div class="pillar-title display" data-i18n="pillar1_title">Proven Expertise</div>
+          <div class="pillar-text" data-i18n="pillar1_text">50+ successful projects and over 100 years of combined experience delivering the desired outcomes to clients across industries and geographies.</div>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div>
+          <div class="pillar-title display" data-i18n="pillar2_title">Trusted Client Partnership</div>
+          <div class="pillar-text" data-i18n="pillar2_text">20+ satisfied clients globally receiving reliable, transparent and consistent value. We invest in your long-term success, not just project delivery.</div>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div>
+          <div class="pillar-title display" data-i18n="pillar3_title">Ever-Ready Team</div>
+          <div class="pillar-text" data-i18n="pillar3_text">Our team continuously uplifts knowledge and skills, exploring diverse solutions to address every client challenge with fresh, current thinking.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="section alt fade-up">
+  <div class="cases-hdr">
+    <div>
+      <div class="sec-eyebrow" data-i18n="cases_eyebrow">Case Studies</div>
+      <div class="sec-title display" data-i18n="cases_title">Our Success Stories</div>
+    </div>
+    <a class="cases-all" data-i18n="cases_all">View all case studies →</a>
+  </div>
+  <div class="cases-grid">
+    <div class="case">
+      <div class="case-thumb">🏠</div>
+      <div class="case-body">
+        <div class="case-tag" data-i18n="case1_tag">Real Estate · PropTech</div>
+        <div class="case-title display" data-i18n="case1_title">Real Estate Portfolio Management</div>
+        <div class="case-desc" data-i18n="case1_desc">A one-stop solution for home maintenance — property owners manage portfolios and choose service providers with ease.</div>
+      </div>
+    </div>
+    <div class="case">
+      <div class="case-thumb">🌐</div>
+      <div class="case-body">
+        <div class="case-tag" data-i18n="case2_tag">Smart Cities · Interoperability</div>
+        <div class="case-title display" data-i18n="case2_title">Interoperable Digital Services</div>
+        <div class="case-desc" data-i18n="case2_desc">Platform enabling seamless digital services within urban ecosystems, enhancing convenience for businesses and consumers.</div>
+      </div>
+    </div>
+    <div class="case">
+      <div class="case-thumb">🧠</div>
+      <div class="case-body">
+        <div class="case-tag" data-i18n="case3_tag">Healthcare · Neurodiversity</div>
+        <div class="case-title display" data-i18n="case3_title">Care for Neurodiversity</div>
+        <div class="case-desc" data-i18n="case3_desc">Working with Surrey ADHD clinic to bring neurodiversity information and support tools to patients and families.</div>
+      </div>
+    </div>
+    <div class="case">
+      <div class="case-thumb">🛍️</div>
+      <div class="case-body">
+        <div class="case-tag" data-i18n="case4_tag">eCommerce · Retail</div>
+        <div class="case-title display" data-i18n="case4_title">Sustainable eCommerce</div>
+        <div class="case-desc" data-i18n="case4_desc">Helping brands go digital across Shopify, Wix, Amazon and eBay — from initial setup to multi-channel scaling.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="locations fade-up">
+  <div>
+    <div class="sec-eyebrow" data-i18n="loc_eyebrow">Global Presence</div>
+    <div class="loc-title" data-i18n="loc_title">London · Dubai · Bangalore</div>
+    <div class="loc-chips">
+      <div class="loc-chip" data-i18n="loc_uk">🇬🇧 United Kingdom</div>
+      <div class="loc-chip" data-i18n="loc_ae">🇦🇪 United Arab Emirates</div>
+      <div class="loc-chip" data-i18n="loc_in">🇮🇳 India</div>
+    </div>
+  </div>
+  <div class="loc-contact">
+    <a href="mailto:sales@aqualeo.co">sales@aqualeo.co</a>
+    <a href="tel:+442080773228">+44 20 8077 3228</a>
+    <a href="#" data-i18n="loc_book">Book a discovery call →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band fade-up">
+  <div class="cta-band-text" data-i18n="cta_text">Ready to accelerate your digital transformation?</div>
+  <button class="btn-primary" style="white-space:nowrap;" data-i18n="cta_btn">Let's Connect →</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-logo"></div>
+    <div class="foot-tag" data-i18n="foot_tag">IT Consulting &amp; Digital Commerce — empowering businesses across London, Dubai &amp; Bangalore.</div>
+  </div>
+  <div>
+    <div class="foot-col-title" data-i18n="foot_services">Services</div>
+    <ul class="foot-links">
+      <li><a href="#" data-i18n="svc1_name">IT &amp; Business Consulting</a></li>
+      <li><a href="#" data-i18n="svc2_name">Digital Commerce</a></li>
+      <li><a href="#" data-i18n="svc3_name">Staff Augmentation</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="foot-col-title" data-i18n="foot_company">Company</div>
+    <ul class="foot-links">
+      <li><a href="#" data-i18n="foot_about">About Us</a></li>
+      <li><a href="#" data-i18n="nav_cases">Case Studies</a></li>
+      <li><a href="#" data-i18n="foot_blog">Blog</a></li>
+      <li><a href="#" data-i18n="foot_careers">Careers</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="foot-col-title" data-i18n="foot_contact">Contact</div>
+    <ul class="foot-links">
+      <li><a href="mailto:sales@aqualeo.co">sales@aqualeo.co</a></li>
+      <li><a href="tel:+442080773228">+44 20 8077 3228</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="foot-bottom">
+  <div class="foot-copy" data-i18n="foot_copy">© 2026 Aqualeo Digecom. All rights reserved.</div>
+  <div class="foot-copy">London · Dubai · Bangalore</div>
+</div>
+
+
+
+<script>
+// ════════ TRANSLATIONS ════════
+const I18N = {
+  en: {
+    nav_services:"Services", nav_solutions:"Solutions", nav_cases:"Case Studies",
+    nav_about:"About", nav_contact:"Contact", nav_cta:"Get in Touch",
+    hero_badge:"Trusted IT & Digital Partner",
+    hero_h1_a:"Smarter Tech.", hero_h1_b:"Faster Growth.", hero_h1_c:"Better Outcomes.",
+    hero_sub:"From strategy to operations — we help businesses across London, Dubai & Bangalore scale with confidence through IT consulting, digital commerce and staff augmentation.",
+    hero_cta_main:"Let's Connect →", hero_cta_sec:"View Case Studies",
+    stat_projects:"Projects Delivered", stat_clients:"Global Clients", stat_years:"Yrs Combined Exp.", stat_offices:"Global Offices",
+    hcard1_eyebrow:"Active Engagements", hcard1_big:"18 Projects", hcard1_sub:"↑ 3 new this quarter · London · Dubai · Bangalore",
+    hcard2_eyebrow:"Client Rating", hcard2_sub:"Top rated · 20+ clients",
+    hcard3_eyebrow:"Founded", hcard3_sub:"6+ years delivering",
+    svc_eyebrow:"What We Do", svc_title:"Comprehensive digital solutions for ambitious businesses",
+    svc_sub:"Expert IT Consulting, Digital Commerce and Staff Augmentation — tailored to your growth stage.",
+    svc1_name:"IT & Business Consulting",
+    svc1_desc:"Strategic technology roadmaps, architecture reviews, and digital transformation programmes. We align tech with your business goals and deliver measurable outcomes.",
+    svc2_name:"Digital Commerce",
+    svc2_desc:"End-to-end eCommerce across Shopify, WooCommerce, Amazon, eBay and custom platforms. From setup to scaling — driving digital revenue at every stage.",
+    svc3_name:"Staff Augmentation",
+    svc3_desc:"Scale your team on-demand with pre-vetted engineers, architects, and digital specialists who integrate seamlessly into your workflows and culture.",
+    svc_link:"Explore service →",
+    tech_label:"Tech Stack",
+    why_eyebrow:"Why Aqualeo", why_title:"Crafting strategies that fuel long-term success",
+    why_sub:"We combine deep domain expertise with agile delivery — helping you move fast and build things that last across every market you serve.",
+    why_quote:'"Aqualeo transformed our online presence, driving engagement and boosting conversions significantly. Highly recommended for digital growth."',
+    why_quote_attr:"— Pulmonologist, United Kingdom · ★★★★★",
+    pillar1_title:"Proven Expertise", pillar1_text:"50+ successful projects and over 100 years of combined experience delivering the desired outcomes to clients across industries and geographies.",
+    pillar2_title:"Trusted Client Partnership", pillar2_text:"20+ satisfied clients globally receiving reliable, transparent and consistent value. We invest in your long-term success, not just project delivery.",
+    pillar3_title:"Ever-Ready Team", pillar3_text:"Our team continuously uplifts knowledge and skills, exploring diverse solutions to address every client challenge with fresh, current thinking.",
+    cases_eyebrow:"Case Studies", cases_title:"Our Success Stories", cases_all:"View all case studies →",
+    case1_tag:"Real Estate · PropTech", case1_title:"Real Estate Portfolio Management", case1_desc:"A one-stop solution for home maintenance — property owners manage portfolios and choose service providers with ease.",
+    case2_tag:"Smart Cities · Interoperability", case2_title:"Interoperable Digital Services", case2_desc:"Platform enabling seamless digital services within urban ecosystems, enhancing convenience for businesses and consumers.",
+    case3_tag:"Healthcare · Neurodiversity", case3_title:"Care for Neurodiversity", case3_desc:"Working with Surrey ADHD clinic to bring neurodiversity information and support tools to patients and families.",
+    case4_tag:"eCommerce · Retail", case4_title:"Sustainable eCommerce", case4_desc:"Helping brands go digital across Shopify, Wix, Amazon and eBay — from initial setup to multi-channel scaling.",
+    loc_eyebrow:"Global Presence", loc_title:"London · Dubai · Bangalore",
+    loc_uk:"🇬🇧 United Kingdom", loc_ae:"🇦🇪 United Arab Emirates", loc_in:"🇮🇳 India", loc_book:"Book a discovery call →",
+    cta_text:"Ready to accelerate your digital transformation?", cta_btn:"Let's Connect →",
+    foot_tag:"IT Consulting & Digital Commerce — empowering businesses across London, Dubai & Bangalore.",
+    foot_services:"Services", foot_company:"Company", foot_contact:"Contact",
+    foot_about:"About Us", foot_blog:"Blog", foot_careers:"Careers",
+    foot_copy:"© 2026 Aqualeo Digecom. All rights reserved.",
+    settings:"Settings", settings_sub:"Personalize theme, size & language",
+    theme_label:"Theme", fs_label:"Font Size", lang_label:"Language",
+    theme_dark:"Dark", theme_light:"Light", theme_earth:"Earthy"
+  },
+  ar: {
+    nav_services:"الخدمات", nav_solutions:"الحلول", nav_cases:"دراسات الحالة",
+    nav_about:"من نحن", nav_contact:"تواصل معنا", nav_cta:"تواصل معنا",
+    hero_badge:"شريك موثوق لتقنية المعلومات والرقمية",
+    hero_h1_a:"تقنية أذكى.", hero_h1_b:"نمو أسرع.", hero_h1_c:"نتائج أفضل.",
+    hero_sub:"من الاستراتيجية إلى التنفيذ — نساعد الشركات في لندن ودبي وبنغالور على التوسع بثقة من خلال الاستشارات التقنية والتجارة الرقمية وتعزيز فرق العمل.",
+    hero_cta_main:"← تواصل معنا", hero_cta_sec:"عرض دراسات الحالة",
+    stat_projects:"مشروع منجز", stat_clients:"عميل عالمي", stat_years:"سنوات خبرة مشتركة", stat_offices:"مكاتب عالمية",
+    hcard1_eyebrow:"مشاريع قيد التنفيذ", hcard1_big:"١٨ مشروعًا", hcard1_sub:"↑ ٣ جديدة هذا الربع · لندن · دبي · بنغالور",
+    hcard2_eyebrow:"تقييم العملاء", hcard2_sub:"الأعلى تقييمًا · أكثر من ٢٠ عميلًا",
+    hcard3_eyebrow:"تأسست عام", hcard3_sub:"أكثر من ٦ سنوات من التميز",
+    svc_eyebrow:"ما نقدمه", svc_title:"حلول رقمية شاملة للشركات الطموحة",
+    svc_sub:"استشارات تقنية متخصصة، تجارة رقمية، وتعزيز فرق العمل — مصممة لمرحلة نموك.",
+    svc1_name:"استشارات تقنية وأعمال",
+    svc1_desc:"خرائط طريق تقنية استراتيجية ومراجعات معمارية وبرامج تحول رقمي. نوائم التقنية مع أهداف عملك ونحقق نتائج قابلة للقياس.",
+    svc2_name:"التجارة الرقمية",
+    svc2_desc:"تجارة إلكترونية متكاملة عبر Shopify وWooCommerce وAmazon وeBay ومنصات مخصصة. من الإعداد إلى التوسع — نقود الإيرادات الرقمية في كل مرحلة.",
+    svc3_name:"تعزيز فرق العمل",
+    svc3_desc:"وسّع فريقك حسب الطلب بمهندسين ومعماريين ومتخصصين رقميين معتمدين يندمجون بسلاسة في سير العمل والثقافة.",
+    svc_link:"← استكشف الخدمة",
+    tech_label:"المنصات التقنية",
+    why_eyebrow:"لماذا أكواليو", why_title:"نصمم استراتيجيات تدعم النجاح طويل الأمد",
+    why_sub:"نجمع بين الخبرة العميقة في المجال والتنفيذ الرشيق — لمساعدتك على التحرك بسرعة وبناء ما يدوم في كل سوق تخدمه.",
+    why_quote:'"غيّرت أكواليو حضورنا الرقمي، وعزّزت التفاعل ورفعت معدلات التحويل بشكل ملحوظ. ننصح بها بشدة للنمو الرقمي."',
+    why_quote_attr:"— طبيب أمراض صدرية، المملكة المتحدة · ★★★★★",
+    pillar1_title:"خبرة موثوقة", pillar1_text:"أكثر من ٥٠ مشروعًا ناجحًا وأكثر من ١٠٠ عام من الخبرة المشتركة في تقديم النتائج المرجوة للعملاء عبر القطاعات والمناطق.",
+    pillar2_title:"شراكة عملاء موثوقة", pillar2_text:"أكثر من ٢٠ عميلًا راضيًا حول العالم يحصلون على قيمة موثوقة وشفافة ومستمرة. نستثمر في نجاحك طويل الأمد.",
+    pillar3_title:"فريق دائم الاستعداد", pillar3_text:"يطوّر فريقنا معرفته ومهاراته باستمرار، ويستكشف حلولًا متنوعة لمواجهة كل تحدٍّ بفكر متجدد.",
+    cases_eyebrow:"دراسات الحالة", cases_title:"قصص نجاحنا", cases_all:"← عرض جميع دراسات الحالة",
+    case1_tag:"عقارات · بروب-تك", case1_title:"إدارة محافظ العقارات", case1_desc:"حل شامل لصيانة المنازل — يدير الملاك محافظهم ويختارون مزودي الخدمات بسهولة.",
+    case2_tag:"المدن الذكية · التشغيل البيني", case2_title:"خدمات رقمية متكاملة", case2_desc:"منصة تتيح خدمات رقمية سلسة داخل المنظومات الحضرية، تعزّز الراحة للشركات والمستهلكين.",
+    case3_tag:"الرعاية الصحية · التنوع العصبي", case3_title:"رعاية التنوع العصبي", case3_desc:"بالتعاون مع عيادة Surrey ADHD لتوفير المعلومات وأدوات الدعم للمرضى وعائلاتهم.",
+    case4_tag:"تجارة إلكترونية · تجزئة", case4_title:"تجارة إلكترونية مستدامة", case4_desc:"نساعد العلامات على التحول الرقمي عبر Shopify وWix وAmazon وeBay — من الإعداد إلى التوسع متعدد القنوات.",
+    loc_eyebrow:"حضور عالمي", loc_title:"لندن · دبي · بنغالور",
+    loc_uk:"🇬🇧 المملكة المتحدة", loc_ae:"🇦🇪 الإمارات العربية المتحدة", loc_in:"🇮🇳 الهند", loc_book:"← احجز جلسة استشارية",
+    cta_text:"هل أنت جاهز لتسريع تحولك الرقمي؟", cta_btn:"← تواصل معنا",
+    foot_tag:"استشارات تقنية وتجارة رقمية — نمكّن الشركات في لندن ودبي وبنغالور.",
+    foot_services:"الخدمات", foot_company:"الشركة", foot_contact:"تواصل",
+    foot_about:"من نحن", foot_blog:"المدونة", foot_careers:"الوظائف",
+    foot_copy:"© 2026 أكواليو ديجيكوم. جميع الحقوق محفوظة.",
+    settings:"الإعدادات", settings_sub:"خصّص المظهر والحجم واللغة",
+    theme_label:"المظهر", fs_label:"حجم الخط", lang_label:"اللغة",
+    theme_dark:"داكن", theme_light:"فاتح", theme_earth:"ترابي"
+  },
+  fr: {
+    nav_services:"Services", nav_solutions:"Solutions", nav_cases:"Études de cas",
+    nav_about:"À propos", nav_contact:"Contact", nav_cta:"Nous contacter",
+    hero_badge:"Partenaire IT & numérique de confiance",
+    hero_h1_a:"Tech plus intelligente.", hero_h1_b:"Croissance plus rapide.", hero_h1_c:"Meilleurs résultats.",
+    hero_sub:"De la stratégie aux opérations — nous aidons les entreprises de Londres, Dubaï et Bangalore à croître en confiance grâce au conseil IT, au commerce numérique et à l'augmentation d'effectifs.",
+    hero_cta_main:"Discutons →", hero_cta_sec:"Voir les études de cas",
+    stat_projects:"Projets livrés", stat_clients:"Clients globaux", stat_years:"Ans d'exp. cumulée", stat_offices:"Bureaux mondiaux",
+    hcard1_eyebrow:"Engagements actifs", hcard1_big:"18 projets", hcard1_sub:"↑ 3 nouveaux ce trimestre · Londres · Dubaï · Bangalore",
+    hcard2_eyebrow:"Note clients", hcard2_sub:"Excellence · 20+ clients",
+    hcard3_eyebrow:"Fondée en", hcard3_sub:"6+ ans d'expérience",
+    svc_eyebrow:"Ce que nous faisons", svc_title:"Solutions numériques complètes pour entreprises ambitieuses",
+    svc_sub:"Conseil IT, Commerce Numérique et Augmentation d'Effectifs — adaptés à votre stade de croissance.",
+    svc1_name:"Conseil IT & Business",
+    svc1_desc:"Feuilles de route stratégiques, revues d'architecture et programmes de transformation numérique. Nous alignons la tech sur vos objectifs et livrons des résultats mesurables.",
+    svc2_name:"Commerce Numérique",
+    svc2_desc:"E-commerce de bout en bout sur Shopify, WooCommerce, Amazon, eBay et plateformes sur mesure. De la mise en place à la mise à l'échelle.",
+    svc3_name:"Augmentation d'Effectifs",
+    svc3_desc:"Renforcez votre équipe à la demande avec des ingénieurs, architectes et spécialistes pré-qualifiés qui s'intègrent parfaitement.",
+    svc_link:"Explorer le service →",
+    tech_label:"Stack Tech",
+    why_eyebrow:"Pourquoi Aqualeo", why_title:"Des stratégies qui alimentent un succès durable",
+    why_sub:"Nous combinons une expertise métier profonde et une exécution agile — pour aller vite et bâtir solide sur tous vos marchés.",
+    why_quote:'"Aqualeo a transformé notre présence en ligne, augmentant l\'engagement et les conversions de manière significative. Hautement recommandé."',
+    why_quote_attr:"— Pneumologue, Royaume-Uni · ★★★★★",
+    pillar1_title:"Expertise prouvée", pillar1_text:"50+ projets réussis et plus de 100 ans d'expérience cumulée à livrer les résultats attendus à travers les industries et géographies.",
+    pillar2_title:"Partenariat client de confiance", pillar2_text:"20+ clients satisfaits dans le monde, recevant une valeur fiable, transparente et constante. Nous investissons dans votre succès à long terme.",
+    pillar3_title:"Équipe toujours prête", pillar3_text:"Notre équipe enrichit continuellement ses connaissances et compétences pour répondre à chaque défi avec une pensée fraîche et actuelle.",
+    cases_eyebrow:"Études de cas", cases_title:"Nos histoires de réussite", cases_all:"Voir toutes les études →",
+    case1_tag:"Immobilier · PropTech", case1_title:"Gestion de portefeuille immobilier", case1_desc:"Solution complète pour la maintenance — les propriétaires gèrent leur portefeuille et choisissent leurs prestataires.",
+    case2_tag:"Smart Cities · Interopérabilité", case2_title:"Services numériques interopérables", case2_desc:"Plateforme permettant des services numériques fluides dans les écosystèmes urbains.",
+    case3_tag:"Santé · Neurodiversité", case3_title:"Soins pour la neurodiversité", case3_desc:"Avec la clinique Surrey ADHD pour apporter information et outils aux patients et familles.",
+    case4_tag:"E-commerce · Retail", case4_title:"E-commerce durable", case4_desc:"Aider les marques à passer au numérique sur Shopify, Wix, Amazon et eBay — de la mise en place à la mise à l'échelle.",
+    loc_eyebrow:"Présence mondiale", loc_title:"Londres · Dubaï · Bangalore",
+    loc_uk:"🇬🇧 Royaume-Uni", loc_ae:"🇦🇪 Émirats arabes unis", loc_in:"🇮🇳 Inde", loc_book:"Réserver un appel découverte →",
+    cta_text:"Prêt à accélérer votre transformation numérique ?", cta_btn:"Discutons →",
+    foot_tag:"Conseil IT & Commerce Numérique — au service des entreprises à Londres, Dubaï & Bangalore.",
+    foot_services:"Services", foot_company:"Entreprise", foot_contact:"Contact",
+    foot_about:"À propos", foot_blog:"Blog", foot_careers:"Carrières",
+    foot_copy:"© 2026 Aqualeo Digecom. Tous droits réservés.",
+    settings:"Paramètres", settings_sub:"Personnalisez thème, taille & langue",
+    theme_label:"Thème", fs_label:"Taille de police", lang_label:"Langue",
+    theme_dark:"Sombre", theme_light:"Clair", theme_earth:"Terre"
+  },
+  es: {
+    nav_services:"Servicios", nav_solutions:"Soluciones", nav_cases:"Casos de éxito",
+    nav_about:"Nosotros", nav_contact:"Contacto", nav_cta:"Contáctanos",
+    hero_badge:"Socio de TI y Digital de confianza",
+    hero_h1_a:"Tech más inteligente.", hero_h1_b:"Crecimiento más rápido.", hero_h1_c:"Mejores resultados.",
+    hero_sub:"De la estrategia a la operación — ayudamos a empresas en Londres, Dubái y Bangalore a escalar con confianza mediante consultoría TI, comercio digital y aumento de equipos.",
+    hero_cta_main:"Conectemos →", hero_cta_sec:"Ver casos de éxito",
+    stat_projects:"Proyectos entregados", stat_clients:"Clientes globales", stat_years:"Años exp. combinada", stat_offices:"Oficinas globales",
+    hcard1_eyebrow:"Compromisos activos", hcard1_big:"18 proyectos", hcard1_sub:"↑ 3 nuevos este trimestre · Londres · Dubái · Bangalore",
+    hcard2_eyebrow:"Calificación de clientes", hcard2_sub:"Mejor valorado · 20+ clientes",
+    hcard3_eyebrow:"Fundada en", hcard3_sub:"6+ años entregando",
+    svc_eyebrow:"Qué hacemos", svc_title:"Soluciones digitales integrales para empresas ambiciosas",
+    svc_sub:"Consultoría TI, Comercio Digital y Aumento de Equipos — adaptados a tu etapa de crecimiento.",
+    svc1_name:"Consultoría TI y Negocios",
+    svc1_desc:"Hojas de ruta tecnológicas, revisiones de arquitectura y programas de transformación digital. Alineamos la tecnología con tus objetivos y entregamos resultados medibles.",
+    svc2_name:"Comercio Digital",
+    svc2_desc:"E-commerce integral en Shopify, WooCommerce, Amazon, eBay y plataformas a medida. De la configuración al escalado.",
+    svc3_name:"Aumento de Equipos",
+    svc3_desc:"Escala tu equipo bajo demanda con ingenieros, arquitectos y especialistas pre-validados que se integran sin fricciones.",
+    svc_link:"Explorar servicio →",
+    tech_label:"Stack Tecnológico",
+    why_eyebrow:"Por qué Aqualeo", why_title:"Estrategias que impulsan el éxito a largo plazo",
+    why_sub:"Combinamos profunda experiencia con entrega ágil — para moverte rápido y construir soluciones duraderas en cada mercado que sirves.",
+    why_quote:'"Aqualeo transformó nuestra presencia en línea, impulsando el engagement y las conversiones de forma significativa. Altamente recomendados."',
+    why_quote_attr:"— Neumólogo, Reino Unido · ★★★★★",
+    pillar1_title:"Experiencia comprobada", pillar1_text:"50+ proyectos exitosos y más de 100 años de experiencia combinada entregando resultados a clientes en distintas industrias y geografías.",
+    pillar2_title:"Alianza confiable con clientes", pillar2_text:"20+ clientes satisfechos globalmente recibiendo valor fiable, transparente y constante. Invertimos en tu éxito a largo plazo.",
+    pillar3_title:"Equipo siempre listo", pillar3_text:"Nuestro equipo eleva continuamente su conocimiento y habilidades para abordar cada reto con pensamiento fresco y actual.",
+    cases_eyebrow:"Casos de éxito", cases_title:"Nuestras historias de éxito", cases_all:"Ver todos los casos →",
+    case1_tag:"Real Estate · PropTech", case1_title:"Gestión de portafolio inmobiliario", case1_desc:"Solución integral para mantenimiento — los propietarios gestionan portafolios y eligen proveedores con facilidad.",
+    case2_tag:"Smart Cities · Interoperabilidad", case2_title:"Servicios digitales interoperables", case2_desc:"Plataforma que habilita servicios digitales fluidos en ecosistemas urbanos.",
+    case3_tag:"Salud · Neurodiversidad", case3_title:"Cuidado para la neurodiversidad", case3_desc:"Con la clínica Surrey ADHD para llevar información y herramientas a pacientes y familias.",
+    case4_tag:"E-commerce · Retail", case4_title:"E-commerce sostenible", case4_desc:"Ayudamos a marcas a digitalizarse en Shopify, Wix, Amazon y eBay — de la configuración al escalado multicanal.",
+    loc_eyebrow:"Presencia global", loc_title:"Londres · Dubái · Bangalore",
+    loc_uk:"🇬🇧 Reino Unido", loc_ae:"🇦🇪 Emiratos Árabes Unidos", loc_in:"🇮🇳 India", loc_book:"Reserva una llamada →",
+    cta_text:"¿Listo para acelerar tu transformación digital?", cta_btn:"Conectemos →",
+    foot_tag:"Consultoría TI y Comercio Digital — empoderando empresas en Londres, Dubái y Bangalore.",
+    foot_services:"Servicios", foot_company:"Empresa", foot_contact:"Contacto",
+    foot_about:"Sobre nosotros", foot_blog:"Blog", foot_careers:"Carreras",
+    foot_copy:"© 2026 Aqualeo Digecom. Todos los derechos reservados.",
+    settings:"Ajustes", settings_sub:"Personaliza tema, tamaño e idioma",
+    theme_label:"Tema", fs_label:"Tamaño de fuente", lang_label:"Idioma",
+    theme_dark:"Oscuro", theme_light:"Claro", theme_earth:"Tierra"
+  }
+};
+
+// ════════ STATE ════════
+const state = {
+  theme: localStorage.getItem('aq-theme') || 'dark',
+  fs: parseInt(localStorage.getItem('aq-fs') || '2', 10),
+  lang: localStorage.getItem('aq-lang') || 'en'
+};
+
+const body = document.body;
+
+function applyTheme(t){
+  state.theme = t;
+  body.classList.remove('theme-dark','theme-light','theme-earth');
+  body.classList.add('theme-'+t);
+  localStorage.setItem('aq-theme', t);
+  document.querySelectorAll('[data-theme]').forEach(b=>{
+    b.classList.toggle('active', b.dataset.theme===t);
+  });
+}
+
+function applyFs(n){
+  state.fs = n;
+  body.classList.remove('fs-1','fs-2','fs-3','fs-4');
+  body.classList.add('fs-'+n);
+  localStorage.setItem('aq-fs', String(n));
+  document.querySelectorAll('[data-fs]').forEach(b=>{
+    b.classList.toggle('active', String(b.dataset.fs)===String(n));
+  });
+}
+
+function applyLang(l){
+  state.lang = l;
+  const dict = I18N[l] || I18N.en;
+  document.documentElement.lang = l;
+  const isRtl = l === 'ar';
+  document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+  body.dir = isRtl ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key]) el.textContent = dict[key];
+  });
+  // Lang label in nav
+  const ll = document.getElementById('dd-lang-label');
+  if(ll) ll.textContent = l.toUpperCase();
+  localStorage.setItem('aq-lang', l);
+  document.querySelectorAll('[data-lang]').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang===l);
+  });
+}
+
+// ════════ DROPDOWNS ════════
+const dds = document.querySelectorAll('.nav-dd');
+dds.forEach(dd=>{
+  const btn = dd.querySelector('.nav-dd-btn');
+  btn.addEventListener('click', e=>{
+    e.stopPropagation();
+    const wasOpen = dd.classList.contains('open');
+    dds.forEach(d=>d.classList.remove('open'));
+    if(!wasOpen) dd.classList.add('open');
+  });
+});
+document.addEventListener('click', ()=>dds.forEach(d=>d.classList.remove('open')));
+
+// Update theme icon swatch
+function updateThemeIcon(t){
+  const icon = document.getElementById('dd-theme-icon');
+  if(!icon) return;
+  if(t==='dark') icon.style.background='#04090F';
+  if(t==='light'){ icon.style.background='#FFFFFF'; icon.style.borderColor='#CBD5E1'; }
+  if(t==='earth') icon.style.background='#C2410C';
+}
+
+document.querySelectorAll('[data-theme]').forEach(b=>b.addEventListener('click',()=>{applyTheme(b.dataset.theme); updateThemeIcon(b.dataset.theme);}));
+document.querySelectorAll('[data-fs]').forEach(b=>b.addEventListener('click',()=>applyFs(parseInt(b.dataset.fs,10))));
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+
+// ════════ FADE-UP OBSERVER ════════
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+// ════════ INIT ════════
+applyTheme(state.theme); updateThemeIcon(state.theme);
+applyFs(state.fs);
+applyLang(state.lang);
+</script>
+</body>
+</html>

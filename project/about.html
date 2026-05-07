@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Aqualeo Digecom</title>
+<link rel="icon" type="image/avif" href="assets/favicon.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aqualeo-shared.css">
+<style>
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:start;}
+  .about-stats{
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:var(--border2);border:1px solid var(--border2);border-radius:14px;overflow:hidden;
+    margin-top:calc(48px * var(--scale));
+  }
+  .about-stat{background:var(--bg);padding:calc(28px * var(--scale));}
+  .about-stat-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(48px * var(--scale));font-weight:700;
+    letter-spacing:-.04em;line-height:1;color:var(--fg);margin-bottom:6px;
+  }
+  .about-stat-label{font-size:calc(13px * var(--scale));color:var(--fg2);}
+  .about-side{
+    background:var(--surface);border:1px solid var(--border2);border-radius:14px;
+    padding:calc(32px * var(--scale));
+  }
+  .about-side h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(20px * var(--scale));font-weight:700;
+    letter-spacing:-.02em;margin-bottom:18px;color:var(--fg);
+  }
+  .vlist{list-style:none;display:grid;gap:16px;}
+  .vlist li{display:flex;gap:14px;align-items:flex-start;}
+  .vdot{
+    width:32px;height:32px;border-radius:8px;flex-shrink:0;
+    background:var(--surface2);border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;color:var(--accent);font-weight:700;
+  }
+  .vtitle{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--fg);font-size:calc(15px * var(--scale));margin-bottom:4px;}
+  .vdesc{font-size:calc(13px * var(--scale));color:var(--fg2);line-height:1.6;}
+  .body-text{font-size:calc(16px * var(--scale));color:var(--fg2);line-height:1.8;margin-bottom:20px;}
+
+  .timeline{margin-top:calc(80px * var(--scale));border-top:1px solid var(--border2);padding-top:calc(60px * var(--scale));}
+  .timeline-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(28px * var(--scale));font-weight:700;
+    letter-spacing:-.02em;margin-bottom:32px;color:var(--fg);
+  }
+  .tlist{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:14px;overflow:hidden;}
+  .titem{background:var(--bg);padding:calc(28px * var(--scale));}
+  .tyear{font-family:'Space Grotesk',sans-serif;font-size:calc(13px * var(--scale));font-weight:700;color:var(--accent);letter-spacing:.1em;margin-bottom:10px;}
+  .ttitle{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--fg);font-size:calc(16px * var(--scale));margin-bottom:8px;line-height:1.3;}
+  .tdesc{font-size:calc(13px * var(--scale));color:var(--fg2);line-height:1.6;}
+
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;gap:32px;}
+    .tlist{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body class="theme-dark fs-2" dir="ltr">
+
+<div id="aq-nav-slot"></div>
+
+<main class="page">
+  <div class="page-eyebrow" data-i18n="page_eyebrow">About Aqualeo</div>
+  <h1 class="page-title display"><span data-i18n="page_title_a">A senior team built for</span> <span class="hi" data-i18n="page_title_b">long-term partnerships.</span></h1>
+  <p class="page-sub" data-i18n="page_sub">We're a focused IT consulting and digital commerce firm operating across London, Dubai and Bangalore — combining global delivery with local accountability.</p>
+
+  <div class="about-grid">
+    <div>
+      <p class="body-text" data-i18n="about_p1">Aqualeo Digecom was founded by senior practitioners who'd spent decades inside large consultancies and product organisations — and were tired of the trade-offs. We built the firm we wished existed: small enough to care, senior enough to deliver, structured enough to scale.</p>
+      <p class="body-text" data-i18n="about_p2">Today we partner with mid-market and enterprise teams across the UK, GCC and India. We embed alongside your people, transfer knowledge as we go, and measure success in business outcomes — not just deliverables.</p>
+
+      <div class="about-stats fade-up">
+        <div class="about-stat"><div class="about-stat-num">50+</div><div class="about-stat-label" data-i18n="stat_projects">Projects Delivered</div></div>
+        <div class="about-stat"><div class="about-stat-num">20+</div><div class="about-stat-label" data-i18n="stat_clients">Global Clients</div></div>
+        <div class="about-stat"><div class="about-stat-num">100+</div><div class="about-stat-label" data-i18n="stat_years">Years Combined Exp.</div></div>
+        <div class="about-stat"><div class="about-stat-num">3</div><div class="about-stat-label" data-i18n="stat_offices">Global Offices</div></div>
+      </div>
+    </div>
+
+    <aside class="about-side fade-up">
+      <h3 data-i18n="values_title">Our Values</h3>
+      <ul class="vlist">
+        <li><div class="vdot">◇</div><div><div class="vtitle" data-i18n="v1_t">Outcome-led</div><div class="vdesc" data-i18n="v1_d">We measure ourselves on the business impact our work creates — not on hours billed.</div></div></li>
+        <li><div class="vdot">⬡</div><div><div class="vtitle" data-i18n="v2_t">Senior by default</div><div class="vdesc" data-i18n="v2_d">Every engagement is led by practitioners with 15+ years of in-the-room experience.</div></div></li>
+        <li><div class="vdot">△</div><div><div class="vtitle" data-i18n="v3_t">Honest counsel</div><div class="vdesc" data-i18n="v3_d">We say no when an idea won't work — and we tell you why before scoping anything.</div></div></li>
+        <li><div class="vdot">◐</div><div><div class="vtitle" data-i18n="v4_t">Knowledge transfer</div><div class="vdesc" data-i18n="v4_d">Your team should be stronger when we leave than when we arrived. That's the goal.</div></div></li>
+      </ul>
+    </aside>
+  </div>
+
+  <section class="timeline">
+    <h2 class="timeline-title" data-i18n="tl_title">A short journey</h2>
+    <div class="tlist">
+      <div class="titem fade-up">
+        <div class="tyear">2019</div>
+        <div class="ttitle" data-i18n="tl1_t">Founded in London</div>
+        <div class="tdesc" data-i18n="tl1_d">A two-person consultancy taking on its first IT advisory engagements.</div>
+      </div>
+      <div class="titem fade-up">
+        <div class="tyear">2021</div>
+        <div class="ttitle" data-i18n="tl2_t">Bangalore delivery hub</div>
+        <div class="tdesc" data-i18n="tl2_d">Engineering bench launches; first full digital commerce builds delivered.</div>
+      </div>
+      <div class="titem fade-up">
+        <div class="tyear">2023</div>
+        <div class="ttitle" data-i18n="tl3_t">Dubai office opens</div>
+        <div class="tdesc" data-i18n="tl3_d">Expansion into GCC markets — Real Estate, Smart Cities and Healthcare.</div>
+      </div>
+      <div class="titem fade-up">
+        <div class="tyear">2026</div>
+        <div class="ttitle" data-i18n="tl4_t">50+ projects delivered</div>
+        <div class="tdesc" data-i18n="tl4_d">Across 20+ clients, three continents and rapidly growing AI &amp; data practice.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="aq-footer-slot"></div>
+
+<script src="assets/aqualeo-shared.js"></script>
+<script>
+const PAGE_DICT = {
+  en: {
+    page_eyebrow:"About Aqualeo",
+    page_title_a:"A senior team built for", page_title_b:"long-term partnerships.",
+    page_sub:"We're a focused IT consulting and digital commerce firm operating across London, Dubai and Bangalore — combining global delivery with local accountability.",
+    about_p1:"Aqualeo Digecom was founded by senior practitioners who'd spent decades inside large consultancies and product organisations — and were tired of the trade-offs. We built the firm we wished existed: small enough to care, senior enough to deliver, structured enough to scale.",
+    about_p2:"Today we partner with mid-market and enterprise teams across the UK, GCC and India. We embed alongside your people, transfer knowledge as we go, and measure success in business outcomes — not just deliverables.",
+    stat_projects:"Projects Delivered", stat_clients:"Global Clients", stat_years:"Years Combined Exp.", stat_offices:"Global Offices",
+    values_title:"Our Values",
+    v1_t:"Outcome-led", v1_d:"We measure ourselves on the business impact our work creates — not on hours billed.",
+    v2_t:"Senior by default", v2_d:"Every engagement is led by practitioners with 15+ years of in-the-room experience.",
+    v3_t:"Honest counsel", v3_d:"We say no when an idea won't work — and we tell you why before scoping anything.",
+    v4_t:"Knowledge transfer", v4_d:"Your team should be stronger when we leave than when we arrived. That's the goal.",
+    tl_title:"A short journey",
+    tl1_t:"Founded in London", tl1_d:"A two-person consultancy taking on its first IT advisory engagements.",
+    tl2_t:"Bangalore delivery hub", tl2_d:"Engineering bench launches; first full digital commerce builds delivered.",
+    tl3_t:"Dubai office opens", tl3_d:"Expansion into GCC markets — Real Estate, Smart Cities and Healthcare.",
+    tl4_t:"50+ projects delivered", tl4_d:"Across 20+ clients, three continents and rapidly growing AI & data practice."
+  },
+  ar: {
+    page_eyebrow:"عن أكواليو",
+    page_title_a:"فريق رفيع المستوى لبناء", page_title_b:"شراكات طويلة الأمد.",
+    page_sub:"شركة متخصصة في الاستشارات التقنية والتجارة الرقمية تعمل بين لندن ودبي وبنغالور — تجمع بين التنفيذ العالمي والمحاسبة المحلية.",
+    about_p1:"تأسست أكواليو ديجيكوم على يد ممارسين كبار قضوا عقودًا في كبرى شركات الاستشارات ومنظمات المنتجات — وأرهقتهم المساومات. أسّسنا الشركة التي تمنيناها: صغيرة بما يكفي لنهتم، رفيعة بما يكفي لننفّذ.",
+    about_p2:"اليوم نشارك فرق المؤسسات والشركات المتوسطة في المملكة المتحدة والخليج والهند. ننغمس مع فريقك، وننقل المعرفة، ونقيس النجاح بالنتائج التجارية لا بالمخرجات.",
+    stat_projects:"مشروع منجز", stat_clients:"عميل عالمي", stat_years:"سنوات خبرة مشتركة", stat_offices:"مكاتب عالمية",
+    values_title:"قيمنا",
+    v1_t:"موجَّه بالنتائج", v1_d:"نقيس أنفسنا بالأثر التجاري الذي يصنعه عملنا — لا بساعات الفوترة.",
+    v2_t:"خبرة رفيعة افتراضيًا", v2_d:"كل مهمة يقودها ممارسون بخبرة ١٥+ سنة في غرف القرار.",
+    v3_t:"مشورة صادقة", v3_d:"نقول لا حين لا تنجح الفكرة — ونوضح السبب قبل أي تحديد للنطاق.",
+    v4_t:"نقل المعرفة", v4_d:"يجب أن يكون فريقك أقوى عند مغادرتنا. هذا هو الهدف.",
+    tl_title:"رحلة قصيرة",
+    tl1_t:"تأسست في لندن", tl1_d:"شركة استشارية من شخصين تتولى مهامها الاستشارية التقنية الأولى.",
+    tl2_t:"مركز التنفيذ في بنغالور", tl2_d:"إطلاق فريق الهندسة وتنفيذ أول عمليات تجارة رقمية كاملة.",
+    tl3_t:"افتتاح مكتب دبي", tl3_d:"توسع في أسواق الخليج — العقارات والمدن الذكية والرعاية الصحية.",
+    tl4_t:"٥٠+ مشروعًا مُنجزًا", tl4_d:"عبر ٢٠+ عميلًا وثلاث قارات وممارسة ذكاء اصطناعي وبيانات سريعة النمو."
+  },
+  fr: {
+    page_eyebrow:"À propos d'Aqualeo",
+    page_title_a:"Une équipe senior pour", page_title_b:"des partenariats durables.",
+    page_sub:"Cabinet de conseil IT et commerce numérique opérant entre Londres, Dubaï et Bangalore — alliant exécution globale et responsabilité locale.",
+    about_p1:"Aqualeo Digecom a été fondé par des praticiens seniors ayant passé des décennies dans de grands cabinets et organisations produit — et fatigués des compromis. Nous avons bâti le cabinet que nous aurions voulu trouver.",
+    about_p2:"Aujourd'hui, nous accompagnons des équipes mid-market et grands comptes au Royaume-Uni, GCC et Inde. Nous intégrons vos équipes, transférons les connaissances et mesurons le succès en résultats business.",
+    stat_projects:"Projets livrés", stat_clients:"Clients globaux", stat_years:"Ans d'exp. cumulée", stat_offices:"Bureaux mondiaux",
+    values_title:"Nos Valeurs",
+    v1_t:"Orienté résultat", v1_d:"Nous nous mesurons à l'impact business de notre travail — pas aux heures facturées.",
+    v2_t:"Senior par défaut", v2_d:"Chaque engagement est piloté par des praticiens avec 15+ ans d'expérience.",
+    v3_t:"Conseil honnête", v3_d:"Nous savons dire non quand une idée ne tient pas — et expliquer pourquoi.",
+    v4_t:"Transfert de connaissance", v4_d:"Votre équipe doit être plus forte à notre départ qu'à notre arrivée.",
+    tl_title:"Une courte trajectoire",
+    tl1_t:"Fondée à Londres", tl1_d:"Cabinet à deux personnes prenant ses premiers mandats de conseil IT.",
+    tl2_t:"Hub de delivery à Bangalore", tl2_d:"Lancement de l'équipe ingénierie ; premiers builds commerce livrés.",
+    tl3_t:"Ouverture du bureau de Dubaï", tl3_d:"Expansion sur les marchés GCC — immobilier, smart cities, santé.",
+    tl4_t:"50+ projets livrés", tl4_d:"Plus de 20 clients, trois continents et une pratique IA & data en plein essor."
+  },
+  es: {
+    page_eyebrow:"Sobre Aqualeo",
+    page_title_a:"Un equipo senior pensado para", page_title_b:"alianzas duraderas.",
+    page_sub:"Firma de consultoría TI y comercio digital con operaciones entre Londres, Dubái y Bangalore — combinando ejecución global con responsabilidad local.",
+    about_p1:"Aqualeo Digecom fue fundada por practicantes senior que pasaron décadas en grandes consultoras y empresas de producto — y se cansaron de los compromisos. Construimos la firma que deseábamos encontrar.",
+    about_p2:"Hoy acompañamos a equipos mid-market y enterprise en Reino Unido, GCC e India. Nos integramos en tu equipo, transferimos conocimiento y medimos el éxito en resultados de negocio.",
+    stat_projects:"Proyectos entregados", stat_clients:"Clientes globales", stat_years:"Años exp. combinada", stat_offices:"Oficinas globales",
+    values_title:"Nuestros Valores",
+    v1_t:"Orientados a resultado", v1_d:"Nos medimos por el impacto de negocio que crea nuestro trabajo — no por horas facturadas.",
+    v2_t:"Senior por defecto", v2_d:"Cada proyecto lo lidera un practicante con 15+ años de experiencia.",
+    v3_t:"Consejo honesto", v3_d:"Decimos no cuando una idea no funcionará — y explicamos por qué.",
+    v4_t:"Transferencia de conocimiento", v4_d:"Tu equipo debe ser más fuerte cuando nos vamos que cuando llegamos.",
+    tl_title:"Una breve trayectoria",
+    tl1_t:"Fundada en Londres", tl1_d:"Consultoría de dos personas iniciando sus primeros encargos de asesoría TI.",
+    tl2_t:"Hub de delivery en Bangalore", tl2_d:"Lanzamiento del equipo de ingeniería y primeras entregas de comercio digital.",
+    tl3_t:"Apertura oficina Dubái", tl3_d:"Expansión a mercados GCC — Inmobiliario, Smart Cities y Salud.",
+    tl4_t:"50+ proyectos entregados", tl4_d:"Con 20+ clientes, tres continentes y una práctica de IA y datos en rápido crecimiento."
+  }
+};
+AQ_renderChrome('about');
+AQ_initChrome(PAGE_DICT);
+</script>
+</body>
+</html>

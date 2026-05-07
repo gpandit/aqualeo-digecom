@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions — Aqualeo Digecom</title>
+<link rel="icon" type="image/avif" href="assets/favicon.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aqualeo-shared.css">
+<style>
+  .industries{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:14px;overflow:hidden;}
+  .ind{background:var(--bg);padding:calc(40px * var(--scale));transition:background .2s;}
+  .ind:hover{background:var(--surface);}
+  .ind-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(13px * var(--scale));font-weight:700;
+    color:var(--accent);letter-spacing:.1em;margin-bottom:14px;
+  }
+  .ind h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(24px * var(--scale));font-weight:700;
+    letter-spacing:-.02em;margin-bottom:12px;color:var(--fg);
+  }
+  .ind p{font-size:calc(14px * var(--scale));color:var(--fg2);line-height:1.7;margin-bottom:18px;}
+  .ind .tags{display:flex;gap:8px;flex-wrap:wrap;}
+  .ind .tag{
+    padding:5px 12px;border-radius:100px;border:1px solid var(--border);
+    font-size:calc(11px * var(--scale));font-weight:500;color:var(--fg2);
+  }
+  @media (max-width:900px){.industries{grid-template-columns:1fr;}}
+</style>
+</head>
+<body class="theme-dark fs-2" dir="ltr">
+
+<div id="aq-nav-slot"></div>
+
+<main class="page">
+  <div class="page-eyebrow" data-i18n="page_eyebrow">Industry Solutions</div>
+  <h1 class="page-title display"><span data-i18n="page_title_a">Solutions tailored</span> <span class="hi" data-i18n="page_title_b">to your industry.</span></h1>
+  <p class="page-sub" data-i18n="page_sub">We work across regulated and fast-moving sectors — bringing pattern recognition from each engagement to the next. Here are the industries where we go deepest.</p>
+
+  <div class="industries">
+    <div class="ind fade-up">
+      <div class="ind-num">01</div>
+      <h3 data-i18n="i1_title">Real Estate &amp; PropTech</h3>
+      <p data-i18n="i1_desc">Portfolio platforms, marketplace integrations and resident-experience apps for landlords, agents and FM operators across the UK and Gulf.</p>
+      <div class="tags"><span class="tag" data-i18n="i1_t1">Portfolio Mgmt</span><span class="tag" data-i18n="i1_t2">FM Marketplace</span><span class="tag" data-i18n="i1_t3">Resident Apps</span></div>
+    </div>
+    <div class="ind fade-up">
+      <div class="ind-num">02</div>
+      <h3 data-i18n="i2_title">Healthcare &amp; Life Sciences</h3>
+      <p data-i18n="i2_desc">Patient-facing platforms, clinic operations tooling, and accessibility-first products — including neurodiversity-focused programmes for specialist practices.</p>
+      <div class="tags"><span class="tag" data-i18n="i2_t1">Patient Portals</span><span class="tag" data-i18n="i2_t2">Clinic Ops</span><span class="tag" data-i18n="i2_t3">Accessibility</span></div>
+    </div>
+    <div class="ind fade-up">
+      <div class="ind-num">03</div>
+      <h3 data-i18n="i3_title">Smart Cities &amp; Public Sector</h3>
+      <p data-i18n="i3_desc">Interoperable digital services that connect citizens, agencies and businesses — built for procurement scrutiny and long-term operability.</p>
+      <div class="tags"><span class="tag" data-i18n="i3_t1">Interop</span><span class="tag" data-i18n="i3_t2">Citizen Services</span><span class="tag" data-i18n="i3_t3">Open Data</span></div>
+    </div>
+    <div class="ind fade-up">
+      <div class="ind-num">04</div>
+      <h3 data-i18n="i4_title">Retail &amp; Sustainable Brands</h3>
+      <p data-i18n="i4_desc">Direct-to-consumer commerce, marketplace expansion and ethical supply-chain storytelling — for brands that lead on values as well as design.</p>
+      <div class="tags"><span class="tag" data-i18n="i4_t1">DTC</span><span class="tag" data-i18n="i4_t2">Marketplaces</span><span class="tag" data-i18n="i4_t3">Sustainability</span></div>
+    </div>
+    <div class="ind fade-up">
+      <div class="ind-num">05</div>
+      <h3 data-i18n="i5_title">Financial Services &amp; Fintech</h3>
+      <p data-i18n="i5_desc">Compliance-aware platforms, customer onboarding flows and data integrations for lenders, brokers and emerging fintech challengers.</p>
+      <div class="tags"><span class="tag" data-i18n="i5_t1">KYC/AML</span><span class="tag" data-i18n="i5_t2">Onboarding</span><span class="tag" data-i18n="i5_t3">Data Integ.</span></div>
+    </div>
+    <div class="ind fade-up">
+      <div class="ind-num">06</div>
+      <h3 data-i18n="i6_title">SaaS &amp; Tech Scale-ups</h3>
+      <p data-i18n="i6_desc">Embedded engineering teams, GTM-ready integrations and product-led growth platforms — helping scale-ups punch above their weight.</p>
+      <div class="tags"><span class="tag" data-i18n="i6_t1">Platform Eng.</span><span class="tag" data-i18n="i6_t2">Integrations</span><span class="tag" data-i18n="i6_t3">PLG</span></div>
+    </div>
+  </div>
+</main>
+
+<div id="aq-footer-slot"></div>
+
+<script src="assets/aqualeo-shared.js"></script>
+<script>
+const PAGE_DICT = {
+  en: {
+    page_eyebrow:"Industry Solutions",
+    page_title_a:"Solutions tailored", page_title_b:"to your industry.",
+    page_sub:"We work across regulated and fast-moving sectors — bringing pattern recognition from each engagement to the next. Here are the industries where we go deepest.",
+    i1_title:"Real Estate & PropTech", i1_desc:"Portfolio platforms, marketplace integrations and resident-experience apps for landlords, agents and FM operators across the UK and Gulf.", i1_t1:"Portfolio Mgmt", i1_t2:"FM Marketplace", i1_t3:"Resident Apps",
+    i2_title:"Healthcare & Life Sciences", i2_desc:"Patient-facing platforms, clinic operations tooling, and accessibility-first products — including neurodiversity-focused programmes for specialist practices.", i2_t1:"Patient Portals", i2_t2:"Clinic Ops", i2_t3:"Accessibility",
+    i3_title:"Smart Cities & Public Sector", i3_desc:"Interoperable digital services that connect citizens, agencies and businesses — built for procurement scrutiny and long-term operability.", i3_t1:"Interop", i3_t2:"Citizen Services", i3_t3:"Open Data",
+    i4_title:"Retail & Sustainable Brands", i4_desc:"Direct-to-consumer commerce, marketplace expansion and ethical supply-chain storytelling — for brands that lead on values as well as design.", i4_t1:"DTC", i4_t2:"Marketplaces", i4_t3:"Sustainability",
+    i5_title:"Financial Services & Fintech", i5_desc:"Compliance-aware platforms, customer onboarding flows and data integrations for lenders, brokers and emerging fintech challengers.", i5_t1:"KYC/AML", i5_t2:"Onboarding", i5_t3:"Data Integ.",
+    i6_title:"SaaS & Tech Scale-ups", i6_desc:"Embedded engineering teams, GTM-ready integrations and product-led growth platforms — helping scale-ups punch above their weight.", i6_t1:"Platform Eng.", i6_t2:"Integrations", i6_t3:"PLG"
+  },
+  ar: {
+    page_eyebrow:"حلول قطاعية",
+    page_title_a:"حلول مصمَّمة", page_title_b:"لقطاعك.",
+    page_sub:"نعمل في قطاعات منظَّمة وسريعة الحركة — ننقل أنماط التعلم من مهمة إلى أخرى. إليك القطاعات التي نتعمق فيها.",
+    i1_title:"العقارات وPropTech", i1_desc:"منصات إدارة المحافظ وتكامل الأسواق وتطبيقات تجربة الساكن للملاك والوسطاء ومشغّلي إدارة المرافق في المملكة المتحدة والخليج.", i1_t1:"إدارة المحافظ", i1_t2:"سوق إدارة المرافق", i1_t3:"تطبيقات السكان",
+    i2_title:"الرعاية الصحية وعلوم الحياة", i2_desc:"منصات للمرضى، أدوات تشغيل العيادات، ومنتجات تصمَّم بالوصولية أولًا — بما في ذلك برامج التنوع العصبي للعيادات المتخصصة.", i2_t1:"بوابات المرضى", i2_t2:"تشغيل العيادات", i2_t3:"إمكانية الوصول",
+    i3_title:"المدن الذكية والقطاع العام", i3_desc:"خدمات رقمية قابلة للتشغيل البيني تربط المواطنين والجهات والشركات — مبنية لاجتياز التدقيق وتشغيل طويل الأمد.", i3_t1:"التشغيل البيني", i3_t2:"خدمات المواطنين", i3_t3:"البيانات المفتوحة",
+    i4_title:"التجزئة والعلامات المستدامة", i4_desc:"تجارة موجهة للمستهلك، توسع في الأسواق، وسرد قصص سلسلة توريد أخلاقية — لعلامات تقود بالقيم كما بالتصميم.", i4_t1:"DTC", i4_t2:"الأسواق", i4_t3:"الاستدامة",
+    i5_title:"الخدمات المالية والتقنية المالية", i5_desc:"منصات واعية بالامتثال، وتدفقات إدماج العملاء، وتكاملات بيانات للمقرضين والوسطاء وشركات الفنتك الناشئة.", i5_t1:"KYC/AML", i5_t2:"إدماج العملاء", i5_t3:"تكامل البيانات",
+    i6_title:"SaaS والشركات التقنية الناشئة", i6_desc:"فرق هندسة مدمجة، وتكاملات جاهزة للسوق، ومنصات نمو موجَّهة بالمنتج — لتساعد الشركات الناشئة على المنافسة فوق وزنها.", i6_t1:"هندسة منصات", i6_t2:"تكاملات", i6_t3:"PLG"
+  },
+  fr: {
+    page_eyebrow:"Solutions Sectorielles",
+    page_title_a:"Des solutions adaptées", page_title_b:"à votre secteur.",
+    page_sub:"Nous opérons dans des secteurs régulés et rapides — apportant la reconnaissance de schémas d'une mission à l'autre. Voici nos verticales d'expertise.",
+    i1_title:"Immobilier & PropTech", i1_desc:"Plateformes de gestion de portefeuille, intégrations marketplace et applications résident pour bailleurs et FM au Royaume-Uni et au Golfe.", i1_t1:"Gestion portefeuille", i1_t2:"Marketplace FM", i1_t3:"Apps résident",
+    i2_title:"Santé & Sciences du Vivant", i2_desc:"Plateformes patients, outils d'opération clinique et produits accessibilité-first — y compris des programmes neurodiversité pour cliniques spécialisées.", i2_t1:"Portails patients", i2_t2:"Ops clinique", i2_t3:"Accessibilité",
+    i3_title:"Villes Intelligentes & Secteur Public", i3_desc:"Services numériques interopérables connectant citoyens, agences et entreprises — conçus pour les exigences de marchés publics.", i3_t1:"Interop", i3_t2:"Services citoyens", i3_t3:"Open Data",
+    i4_title:"Retail & Marques Durables", i4_desc:"Commerce DTC, expansion marketplace et storytelling supply-chain éthique — pour des marques qui mènent par les valeurs autant que par le design.", i4_t1:"DTC", i4_t2:"Marketplaces", i4_t3:"Durabilité",
+    i5_title:"Services Financiers & Fintech", i5_desc:"Plateformes orientées conformité, parcours d'onboarding et intégrations data pour prêteurs, courtiers et nouveaux fintechs.", i5_t1:"KYC/AML", i5_t2:"Onboarding", i5_t3:"Intégr. Data",
+    i6_title:"SaaS & Scale-ups Tech", i6_desc:"Équipes d'ingénierie embarquées, intégrations GTM-ready et plateformes PLG — pour aider les scale-ups à frapper au-dessus de leur poids.", i6_t1:"Ing. plateforme", i6_t2:"Intégrations", i6_t3:"PLG"
+  },
+  es: {
+    page_eyebrow:"Soluciones por Industria",
+    page_title_a:"Soluciones adaptadas", page_title_b:"a tu industria.",
+    page_sub:"Trabajamos en sectores regulados y dinámicos — llevando reconocimiento de patrones de un proyecto al siguiente. Estas son nuestras verticales más profundas.",
+    i1_title:"Inmobiliario & PropTech", i1_desc:"Plataformas de gestión de portafolio, integraciones marketplace y apps de experiencia para inquilinos en Reino Unido y Golfo.", i1_t1:"Gestión Portafolio", i1_t2:"Marketplace FM", i1_t3:"Apps Inquilinos",
+    i2_title:"Salud & Ciencias de la Vida", i2_desc:"Plataformas para pacientes, herramientas de operación clínica y productos con accesibilidad primero — incluyendo programas de neurodiversidad.", i2_t1:"Portales pacientes", i2_t2:"Ops Clínica", i2_t3:"Accesibilidad",
+    i3_title:"Ciudades Inteligentes & Sector Público", i3_desc:"Servicios digitales interoperables que conectan ciudadanos, agencias y empresas — diseñados para escrutinio de licitación.", i3_t1:"Interop", i3_t2:"Servicios ciudadanos", i3_t3:"Open Data",
+    i4_title:"Retail & Marcas Sostenibles", i4_desc:"Comercio DTC, expansión a marketplaces y storytelling de cadena de suministro ética — para marcas que lideran con valores y diseño.", i4_t1:"DTC", i4_t2:"Marketplaces", i4_t3:"Sostenibilidad",
+    i5_title:"Servicios Financieros & Fintech", i5_desc:"Plataformas conscientes del cumplimiento, flujos de onboarding e integraciones de datos para prestamistas, brokers y fintechs.", i5_t1:"KYC/AML", i5_t2:"Onboarding", i5_t3:"Integr. Datos",
+    i6_title:"SaaS & Scale-ups Tech", i6_desc:"Equipos de ingeniería embebidos, integraciones GTM-ready y plataformas PLG — para ayudar a scale-ups a competir por encima de su peso.", i6_t1:"Ing. Plataforma", i6_t2:"Integraciones", i6_t3:"PLG"
+  }
+};
+AQ_renderChrome('solutions');
+AQ_initChrome(PAGE_DICT);
+</script>
+</body>
+</html>
