@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Aqualeo Digecom</title>
+<link rel="icon" type="image/avif" href="assets/favicon.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aqualeo-shared.css">
+<style>
+  .contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start;}
+  .form{
+    background:var(--surface);border:1px solid var(--border2);border-radius:14px;
+    padding:calc(36px * var(--scale));
+  }
+  .form h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(22px * var(--scale));font-weight:700;
+    letter-spacing:-.02em;margin-bottom:8px;color:var(--fg);
+  }
+  .form-sub{font-size:calc(14px * var(--scale));color:var(--fg2);margin-bottom:24px;}
+  .field{display:grid;gap:6px;margin-bottom:18px;}
+  .field label{font-size:calc(12px * var(--scale));font-weight:600;color:var(--fg2);letter-spacing:.04em;}
+  .field input,.field textarea,.field select{
+    background:var(--bg);color:var(--fg);
+    border:1px solid var(--border2);border-radius:8px;
+    padding:calc(11px * var(--scale)) calc(14px * var(--scale));
+    font-family:inherit;font-size:calc(14px * var(--scale));
+    transition:border-color .2s;
+  }
+  body[dir="rtl"] .field input,body[dir="rtl"] .field textarea,body[dir="rtl"] .field select{text-align:right;}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--accent);}
+  .field textarea{min-height:110px;resize:vertical;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .form .btn-primary{width:100%;margin-top:8px;justify-content:center;display:inline-flex;align-items:center;}
+
+  .offices{display:grid;gap:20px;}
+  .office{
+    background:var(--surface);border:1px solid var(--border2);border-radius:14px;
+    padding:calc(28px * var(--scale));
+    transition:border-color .2s,transform .2s;
+  }
+  .office:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .office-flag{font-size:calc(28px * var(--scale));margin-bottom:10px;}
+  .office-city{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(20px * var(--scale));font-weight:700;
+    letter-spacing:-.02em;color:var(--fg);margin-bottom:4px;
+  }
+  .office-region{font-size:calc(12px * var(--scale));color:var(--fg3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;}
+  .office-line{font-size:calc(13px * var(--scale));color:var(--fg2);line-height:1.7;}
+  .office-line a{color:var(--fg2);transition:color .2s;}
+  .office-line a:hover{color:var(--accent);}
+
+  @media (max-width:900px){
+    .contact-grid{grid-template-columns:1fr;gap:32px;}
+    .row2{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body class="theme-dark fs-2" dir="ltr">
+
+<div id="aq-nav-slot"></div>
+
+<main class="page">
+  <div class="page-eyebrow" data-i18n="page_eyebrow">Get in Touch</div>
+  <h1 class="page-title display"><span data-i18n="page_title_a">Let's start</span> <span class="hi" data-i18n="page_title_b">a conversation.</span></h1>
+  <p class="page-sub" data-i18n="page_sub">Tell us a little about your project and we'll come back within one working day. For urgent matters, the offices below are happy to take a call.</p>
+
+  <div class="contact-grid">
+    <!-- ✏️  Replace YOUR_FORM_ID below with your Formspree form ID (see instructions) -->
+    <form class="form fade-up" id="contact-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST">
+      <h2 data-i18n="form_title">Send us a message</h2>
+      <p class="form-sub" data-i18n="form_sub">All fields are optional except your contact details — we'd just love a bit of context.</p>
+      <!-- success / error banners (hidden by default) -->
+      <div id="form-success" style="display:none;padding:12px 16px;border-radius:8px;background:rgba(0,200,100,.12);border:1px solid rgba(0,200,100,.3);color:var(--fg);font-size:14px;margin-bottom:16px;">
+        Thanks — we'll be in touch within one working day! ✓
+      </div>
+      <div id="form-error" style="display:none;padding:12px 16px;border-radius:8px;background:rgba(220,50,50,.12);border:1px solid rgba(220,50,50,.3);color:var(--fg);font-size:14px;margin-bottom:16px;">
+        Something went wrong — please try again or email us directly.
+      </div>
+      <div class="row2">
+        <div class="field"><label data-i18n="f_name">Full name</label><input type="text" name="name" placeholder="Jane Doe"></div>
+        <div class="field"><label data-i18n="f_company">Company</label><input type="text" name="company" placeholder="Acme Ltd"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label data-i18n="f_email">Work email</label><input type="email" name="email" placeholder="jane@acme.com" required></div>
+        <div class="field"><label data-i18n="f_phone">Phone</label><input type="tel" name="phone" placeholder="+44 20 1234 5678"></div>
+      </div>
+      <div class="field">
+        <label data-i18n="f_topic">What can we help with?</label>
+        <select name="service">
+          <option data-i18n="f_topic_1">IT &amp; Business Consulting</option>
+          <option data-i18n="f_topic_2">Digital Commerce</option>
+          <option data-i18n="f_topic_3">Staff Augmentation</option>
+          <option data-i18n="f_topic_4">Something else</option>
+        </select>
+      </div>
+      <div class="field"><label data-i18n="f_msg">A few words about your project</label><textarea name="message" placeholder="What are you trying to build, fix or scale?"></textarea></div>
+      <!-- honeypot spam trap — keep hidden -->
+      <input type="text" name="_gotcha" style="display:none">
+      <button type="submit" id="form-btn" class="btn-primary" data-i18n="f_submit">Send message →</button>
+    </form>
+
+    <aside class="offices">
+      <div class="office fade-up">
+        <div class="office-flag">🇬🇧</div>
+        <div class="office-city" data-i18n="o1_city">London</div>
+        <div class="office-region" data-i18n="o1_region">United Kingdom · HQ</div>
+        <div class="office-line" data-i18n="o1_addr">128 City Road, EC1V 2NX</div>
+        <div class="office-line"><a href="tel:+442031000000">+44 20 3100 0000</a></div>
+        <div class="office-line"><a href="mailto:london@aqualeo.com">london@aqualeo.com</a></div>
+      </div>
+      <div class="office fade-up">
+        <div class="office-flag">🇦🇪</div>
+        <div class="office-city" data-i18n="o2_city">Dubai</div>
+        <div class="office-region" data-i18n="o2_region">United Arab Emirates</div>
+        <div class="office-line" data-i18n="o2_addr">DIFC, Gate Avenue · Level 3</div>
+        <div class="office-line"><a href="tel:+97140000000">+971 4 000 0000</a></div>
+        <div class="office-line"><a href="mailto:dubai@aqualeo.com">dubai@aqualeo.com</a></div>
+      </div>
+      <div class="office fade-up">
+        <div class="office-flag">🇮🇳</div>
+        <div class="office-city" data-i18n="o3_city">Bangalore</div>
+        <div class="office-region" data-i18n="o3_region">India · Delivery Hub</div>
+        <div class="office-line" data-i18n="o3_addr">Indiranagar 100ft Rd, 560038</div>
+        <div class="office-line"><a href="tel:+918000000000">+91 80 0000 0000</a></div>
+        <div class="office-line"><a href="mailto:bangalore@aqualeo.com">bangalore@aqualeo.com</a></div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<div id="aq-footer-slot"></div>
+
+<script src="assets/aqualeo-shared.js"></script>
+<script>
+const PAGE_DICT = {
+  en: {
+    page_eyebrow:"Get in Touch",
+    page_title_a:"Let's start", page_title_b:"a conversation.",
+    page_sub:"Tell us a little about your project and we'll come back within one working day. For urgent matters, the offices below are happy to take a call.",
+    form_title:"Send us a message", form_sub:"All fields are optional except your contact details — we'd just love a bit of context.",
+    f_name:"Full name", f_company:"Company", f_email:"Work email", f_phone:"Phone",
+    f_topic:"What can we help with?",
+    f_topic_1:"IT & Business Consulting", f_topic_2:"Digital Commerce", f_topic_3:"Staff Augmentation", f_topic_4:"Something else",
+    f_msg:"A few words about your project", f_submit:"Send message →",
+    o1_city:"London", o1_region:"United Kingdom · HQ", o1_addr:"128 City Road, EC1V 2NX",
+    o2_city:"Dubai", o2_region:"United Arab Emirates", o2_addr:"DIFC, Gate Avenue · Level 3",
+    o3_city:"Bangalore", o3_region:"India · Delivery Hub", o3_addr:"Indiranagar 100ft Rd, 560038"
+  },
+  ar: {
+    page_eyebrow:"تواصل معنا",
+    page_title_a:"لنبدأ", page_title_b:"محادثة.",
+    page_sub:"أخبرنا قليلًا عن مشروعك وسنعود خلال يوم عمل واحد. للمسائل العاجلة، يسرّ المكاتب أدناه استقبال مكالمتك.",
+    form_title:"أرسل لنا رسالة", form_sub:"جميع الحقول اختيارية باستثناء بيانات الاتصال — سنحب القليل من السياق.",
+    f_name:"الاسم الكامل", f_company:"الشركة", f_email:"البريد الرسمي", f_phone:"الهاتف",
+    f_topic:"كيف يمكننا المساعدة؟",
+    f_topic_1:"استشارات تقنية وأعمال", f_topic_2:"التجارة الرقمية", f_topic_3:"تعزيز فرق العمل", f_topic_4:"شيء آخر",
+    f_msg:"كلمات عن مشروعك", f_submit:"← إرسال الرسالة",
+    o1_city:"لندن", o1_region:"المملكة المتحدة · المقر", o1_addr:"١٢٨ City Road، EC1V 2NX",
+    o2_city:"دبي", o2_region:"الإمارات العربية المتحدة", o2_addr:"مركز دبي المالي · جيت أفنيو، المستوى ٣",
+    o3_city:"بنغالور", o3_region:"الهند · مركز التنفيذ", o3_addr:"إنديرا ناغار، طريق ١٠٠ قدم، ٥٦٠٠٣٨"
+  },
+  fr: {
+    page_eyebrow:"Nous contacter",
+    page_title_a:"Lançons", page_title_b:"la conversation.",
+    page_sub:"Parlez-nous de votre projet — nous revenons sous un jour ouvré. Pour les sujets urgents, les bureaux ci-dessous prennent vos appels.",
+    form_title:"Envoyez-nous un message", form_sub:"Tous les champs sont optionnels sauf vos coordonnées — un peu de contexte nous aide.",
+    f_name:"Nom complet", f_company:"Entreprise", f_email:"Email pro", f_phone:"Téléphone",
+    f_topic:"Comment pouvons-nous aider ?",
+    f_topic_1:"Conseil IT & Business", f_topic_2:"Commerce Numérique", f_topic_3:"Augmentation d'effectifs", f_topic_4:"Autre chose",
+    f_msg:"Quelques mots sur votre projet", f_submit:"Envoyer →",
+    o1_city:"Londres", o1_region:"Royaume-Uni · Siège", o1_addr:"128 City Road, EC1V 2NX",
+    o2_city:"Dubaï", o2_region:"Émirats arabes unis", o2_addr:"DIFC, Gate Avenue · Niveau 3",
+    o3_city:"Bangalore", o3_region:"Inde · Hub Delivery", o3_addr:"Indiranagar 100ft Rd, 560038"
+  },
+  es: {
+    page_eyebrow:"Contáctanos",
+    page_title_a:"Empecemos", page_title_b:"una conversación.",
+    page_sub:"Cuéntanos un poco sobre tu proyecto y respondemos en un día laboral. Para asuntos urgentes, las oficinas abajo atienden llamadas con gusto.",
+    form_title:"Envíanos un mensaje", form_sub:"Todos los campos son opcionales excepto los de contacto — un poco de contexto nos ayuda.",
+    f_name:"Nombre completo", f_company:"Empresa", f_email:"Email profesional", f_phone:"Teléfono",
+    f_topic:"¿En qué podemos ayudar?",
+    f_topic_1:"Consultoría TI y Negocios", f_topic_2:"Comercio Digital", f_topic_3:"Aumento de Equipos", f_topic_4:"Otra cosa",
+    f_msg:"Unas palabras sobre tu proyecto", f_submit:"Enviar mensaje →",
+    o1_city:"Londres", o1_region:"Reino Unido · Sede", o1_addr:"128 City Road, EC1V 2NX",
+    o2_city:"Dubái", o2_region:"Emiratos Árabes Unidos", o2_addr:"DIFC, Gate Avenue · Nivel 3",
+    o3_city:"Bangalore", o3_region:"India · Hub Delivery", o3_addr:"Indiranagar 100ft Rd, 560038"
+  }
+};
+AQ_renderChrome('contact');
+AQ_initChrome(PAGE_DICT);
+
+// ── Formspree async submission ──────────────────────────────────────────────
+const form = document.getElementById('contact-form');
+if(form){
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = document.getElementById('form-btn');
+    const successEl = document.getElementById('form-success');
+    const errorEl   = document.getElementById('form-error');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    successEl.style.display = 'none';
+    errorEl.style.display   = 'none';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok){
+        successEl.style.display = 'block';
+        form.reset();
+      } else {
+        errorEl.style.display = 'block';
+      }
+    } catch(_){
+      errorEl.style.display = 'block';
+    }
+    btn.textContent = 'Send message →';
+    btn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>

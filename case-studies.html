@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — Aqualeo Digecom</title>
+<link rel="icon" type="image/avif" href="assets/favicon.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aqualeo-shared.css">
+<style>
+  .cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .ccard{
+    background:var(--surface);border:1px solid var(--border2);border-radius:14px;
+    overflow:hidden;
+    transition:transform .25s,border-color .25s,box-shadow .25s;
+  }
+  .ccard:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 24px 48px var(--glow);}
+  .ccard-img{
+    aspect-ratio:16/9;
+    background:linear-gradient(135deg,var(--bg3),var(--surface));
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .ccard-img::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 70%,var(--glow) 0%,transparent 60%);
+  }
+  .ccard-glyph{
+    font-size:calc(72px * var(--scale));
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    position:relative;z-index:2;
+  }
+  .ccard-body{padding:calc(28px * var(--scale));}
+  .ccard-tag{
+    font-size:calc(11px * var(--scale));font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:10px;
+  }
+  .ccard-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(22px * var(--scale));font-weight:700;
+    letter-spacing:-.02em;margin-bottom:10px;color:var(--fg);line-height:1.2;
+  }
+  .ccard-desc{font-size:calc(14px * var(--scale));color:var(--fg2);line-height:1.7;margin-bottom:18px;}
+  .ccard-meta{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:18px;padding-top:14px;border-top:1px solid var(--border2);}
+  .ccard-stat-num{font-family:'Space Grotesk',sans-serif;font-size:calc(24px * var(--scale));font-weight:700;color:var(--fg);letter-spacing:-.02em;}
+  .ccard-stat-label{font-size:calc(11px * var(--scale));color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
+  .ccard-link{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:calc(13px * var(--scale));font-weight:600;color:var(--accent);
+    transition:gap .2s;
+  }
+  .ccard:hover .ccard-link{gap:10px;}
+  @media (max-width:900px){.cases-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body class="theme-dark fs-2" dir="ltr">
+
+<div id="aq-nav-slot"></div>
+
+<main class="page">
+  <div class="page-eyebrow" data-i18n="page_eyebrow">Case Studies</div>
+  <h1 class="page-title display"><span data-i18n="page_title_a">Real businesses.</span> <span class="hi" data-i18n="page_title_b">Real outcomes.</span></h1>
+  <p class="page-sub" data-i18n="page_sub">A small selection of recent engagements across real estate, healthcare, public sector and commerce. Names anonymised on request — full case decks available.</p>
+
+  <div class="cases-grid">
+    <article class="ccard fade-up">
+      <div class="ccard-img"><div class="ccard-glyph">◇</div></div>
+      <div class="ccard-body">
+        <div class="ccard-tag" data-i18n="c1_tag">Real Estate · PropTech</div>
+        <h3 class="ccard-title" data-i18n="c1_title">Real Estate Portfolio Management</h3>
+        <p class="ccard-desc" data-i18n="c1_desc">A one-stop maintenance platform letting property owners manage portfolios and select vetted service providers — replacing 4 legacy tools with a single workflow.</p>
+        <div class="ccard-meta">
+          <div><div class="ccard-stat-num">4×</div><div class="ccard-stat-label" data-i18n="c1_s1">Faster Ops</div></div>
+          <div><div class="ccard-stat-num">2,400+</div><div class="ccard-stat-label" data-i18n="c1_s2">Properties</div></div>
+        </div>
+        <a href="#" class="ccard-link" data-i18n="link_read">Read case study →</a>
+      </div>
+    </article>
+
+    <article class="ccard fade-up">
+      <div class="ccard-img"><div class="ccard-glyph">⬡</div></div>
+      <div class="ccard-body">
+        <div class="ccard-tag" data-i18n="c2_tag">Smart Cities · Interoperability</div>
+        <h3 class="ccard-title" data-i18n="c2_title">Interoperable Digital Services</h3>
+        <p class="ccard-desc" data-i18n="c2_desc">Platform enabling seamless digital services within urban ecosystems — connecting agencies, businesses and consumers under a single identity layer.</p>
+        <div class="ccard-meta">
+          <div><div class="ccard-stat-num">12</div><div class="ccard-stat-label" data-i18n="c2_s1">Agencies</div></div>
+          <div><div class="ccard-stat-num">99.97%</div><div class="ccard-stat-label" data-i18n="c2_s2">Uptime</div></div>
+        </div>
+        <a href="#" class="ccard-link" data-i18n="link_read">Read case study →</a>
+      </div>
+    </article>
+
+    <article class="ccard fade-up">
+      <div class="ccard-img"><div class="ccard-glyph">△</div></div>
+      <div class="ccard-body">
+        <div class="ccard-tag" data-i18n="c3_tag">Healthcare · Neurodiversity</div>
+        <h3 class="ccard-title" data-i18n="c3_title">Care for Neurodiversity</h3>
+        <p class="ccard-desc" data-i18n="c3_desc">Working with a Surrey ADHD clinic to bring neurodiversity information and self-service support tools to patients and families — built accessibility-first.</p>
+        <div class="ccard-meta">
+          <div><div class="ccard-stat-num">+62%</div><div class="ccard-stat-label" data-i18n="c3_s1">Engagement</div></div>
+          <div><div class="ccard-stat-num">WCAG AA</div><div class="ccard-stat-label" data-i18n="c3_s2">Accessibility</div></div>
+        </div>
+        <a href="#" class="ccard-link" data-i18n="link_read">Read case study →</a>
+      </div>
+    </article>
+
+    <article class="ccard fade-up">
+      <div class="ccard-img"><div class="ccard-glyph">◐</div></div>
+      <div class="ccard-body">
+        <div class="ccard-tag" data-i18n="c4_tag">eCommerce · Retail</div>
+        <h3 class="ccard-title" data-i18n="c4_title">Sustainable eCommerce</h3>
+        <p class="ccard-desc" data-i18n="c4_desc">Helping a sustainable home-goods brand go digital across Shopify, Wix, Amazon and eBay — from initial setup to multi-channel scaling and performance marketing.</p>
+        <div class="ccard-meta">
+          <div><div class="ccard-stat-num">5</div><div class="ccard-stat-label" data-i18n="c4_s1">Channels</div></div>
+          <div><div class="ccard-stat-num">3.2×</div><div class="ccard-stat-label" data-i18n="c4_s2">Revenue</div></div>
+        </div>
+        <a href="#" class="ccard-link" data-i18n="link_read">Read case study →</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<div id="aq-footer-slot"></div>
+
+<script src="assets/aqualeo-shared.js"></script>
+<script>
+const PAGE_DICT = {
+  en: {
+    page_eyebrow:"Case Studies",
+    page_title_a:"Real businesses.", page_title_b:"Real outcomes.",
+    page_sub:"A small selection of recent engagements across real estate, healthcare, public sector and commerce. Names anonymised on request — full case decks available.",
+    link_read:"Read case study →",
+    c1_tag:"Real Estate · PropTech", c1_title:"Real Estate Portfolio Management",
+    c1_desc:"A one-stop maintenance platform letting property owners manage portfolios and select vetted service providers — replacing 4 legacy tools with a single workflow.",
+    c1_s1:"Faster Ops", c1_s2:"Properties",
+    c2_tag:"Smart Cities · Interoperability", c2_title:"Interoperable Digital Services",
+    c2_desc:"Platform enabling seamless digital services within urban ecosystems — connecting agencies, businesses and consumers under a single identity layer.",
+    c2_s1:"Agencies", c2_s2:"Uptime",
+    c3_tag:"Healthcare · Neurodiversity", c3_title:"Care for Neurodiversity",
+    c3_desc:"Working with a Surrey ADHD clinic to bring neurodiversity information and self-service support tools to patients and families — built accessibility-first.",
+    c3_s1:"Engagement", c3_s2:"Accessibility",
+    c4_tag:"eCommerce · Retail", c4_title:"Sustainable eCommerce",
+    c4_desc:"Helping a sustainable home-goods brand go digital across Shopify, Wix, Amazon and eBay — from initial setup to multi-channel scaling and performance marketing.",
+    c4_s1:"Channels", c4_s2:"Revenue"
+  },
+  ar: {
+    page_eyebrow:"دراسات الحالة",
+    page_title_a:"شركات حقيقية.", page_title_b:"نتائج حقيقية.",
+    page_sub:"مختارات من المهام الأخيرة في العقارات والرعاية الصحية والقطاع العام والتجارة. الأسماء قابلة للحجب عند الطلب — الملفات الكاملة متاحة.",
+    link_read:"← اقرأ دراسة الحالة",
+    c1_tag:"عقارات · PropTech", c1_title:"إدارة محافظ العقارات",
+    c1_desc:"منصة صيانة شاملة تتيح للملاك إدارة محافظهم واختيار مزودي خدمات معتمدين — لتحل محل 4 أدوات قديمة بسير عمل واحد.",
+    c1_s1:"تشغيل أسرع", c1_s2:"عقار",
+    c2_tag:"مدن ذكية · تشغيل بيني", c2_title:"خدمات رقمية متكاملة",
+    c2_desc:"منصة تتيح خدمات رقمية سلسة داخل المنظومات الحضرية — تربط الجهات والشركات والمستهلكين في طبقة هوية واحدة.",
+    c2_s1:"جهة", c2_s2:"وقت تشغيل",
+    c3_tag:"رعاية صحية · تنوع عصبي", c3_title:"رعاية التنوع العصبي",
+    c3_desc:"بالتعاون مع عيادة Surrey ADHD لإيصال المعلومات وأدوات الدعم الذاتي للمرضى وعائلاتهم — مبنية بمعايير الوصولية أولًا.",
+    c3_s1:"تفاعل", c3_s2:"وصولية",
+    c4_tag:"تجارة إلكترونية · تجزئة", c4_title:"تجارة إلكترونية مستدامة",
+    c4_desc:"نساعد علامة لوازم منزلية مستدامة على التوسع الرقمي عبر Shopify وWix وAmazon وeBay — من الإعداد إلى التوسع متعدد القنوات وتسويق الأداء.",
+    c4_s1:"قنوات", c4_s2:"إيرادات"
+  },
+  fr: {
+    page_eyebrow:"Études de cas",
+    page_title_a:"De vraies entreprises.", page_title_b:"De vrais résultats.",
+    page_sub:"Une petite sélection d'engagements récents en immobilier, santé, secteur public et commerce. Noms anonymisés sur demande — dossiers complets disponibles.",
+    link_read:"Lire l'étude →",
+    c1_tag:"Immobilier · PropTech", c1_title:"Gestion de portefeuille immobilier",
+    c1_desc:"Plateforme de maintenance tout-en-un permettant aux propriétaires de gérer leur portefeuille et de choisir des prestataires vérifiés — remplaçant 4 outils par un seul workflow.",
+    c1_s1:"Ops accélérées", c1_s2:"Propriétés",
+    c2_tag:"Smart Cities · Interopérabilité", c2_title:"Services numériques interopérables",
+    c2_desc:"Plateforme permettant des services numériques fluides dans les écosystèmes urbains — connectant agences, entreprises et consommateurs sous une couche d'identité unique.",
+    c2_s1:"Agences", c2_s2:"Disponibilité",
+    c3_tag:"Santé · Neurodiversité", c3_title:"Soins pour la neurodiversité",
+    c3_desc:"Avec une clinique ADHD du Surrey, nous apportons information et outils de soutien aux patients et familles — conçus accessibilité-first.",
+    c3_s1:"Engagement", c3_s2:"Accessibilité",
+    c4_tag:"E-commerce · Retail", c4_title:"E-commerce durable",
+    c4_desc:"Aider une marque d'articles maison durables à passer au numérique sur Shopify, Wix, Amazon et eBay — de la mise en place à l'échelle multi-canal.",
+    c4_s1:"Canaux", c4_s2:"CA"
+  },
+  es: {
+    page_eyebrow:"Casos de Éxito",
+    page_title_a:"Empresas reales.", page_title_b:"Resultados reales.",
+    page_sub:"Una pequeña selección de proyectos recientes en inmobiliario, salud, sector público y comercio. Nombres anonimizados a petición — dosieres completos disponibles.",
+    link_read:"Leer caso →",
+    c1_tag:"Inmobiliario · PropTech", c1_title:"Gestión de portafolio inmobiliario",
+    c1_desc:"Plataforma de mantenimiento integral que permite a propietarios gestionar portafolios y elegir proveedores validados — reemplazando 4 herramientas con un solo flujo.",
+    c1_s1:"Ops más rápidas", c1_s2:"Propiedades",
+    c2_tag:"Smart Cities · Interoperabilidad", c2_title:"Servicios digitales interoperables",
+    c2_desc:"Plataforma que habilita servicios digitales fluidos en ecosistemas urbanos — conectando agencias, empresas y consumidores bajo una capa de identidad.",
+    c2_s1:"Agencias", c2_s2:"Disponibilidad",
+    c3_tag:"Salud · Neurodiversidad", c3_title:"Cuidado para la neurodiversidad",
+    c3_desc:"Con una clínica ADHD de Surrey, llevamos información y herramientas de auto-apoyo a pacientes y familias — construido accessibility-first.",
+    c3_s1:"Engagement", c3_s2:"Accesibilidad",
+    c4_tag:"E-commerce · Retail", c4_title:"E-commerce sostenible",
+    c4_desc:"Ayudamos a una marca de hogar sostenible a digitalizarse en Shopify, Wix, Amazon y eBay — del setup al escalado multicanal.",
+    c4_s1:"Canales", c4_s2:"Ingresos"
+  }
+};
+AQ_renderChrome('cases');
+AQ_initChrome(PAGE_DICT);
+</script>
+</body>
+</html>

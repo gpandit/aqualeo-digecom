@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Aqualeo Digecom</title>
+<link rel="icon" type="image/avif" href="assets/favicon.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aqualeo-shared.css">
+<style>
+  .svc-detail{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+    padding:calc(80px * var(--scale)) 0;border-top:1px solid var(--border2);
+  }
+  .svc-detail:first-of-type{border-top:none;}
+  .svc-detail.flip > div:first-child{order:2;}
+  .svc-detail-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(13px * var(--scale));font-weight:700;
+    letter-spacing:.14em;color:var(--accent);margin-bottom:14px;
+  }
+  .svc-detail h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:calc(clamp(28px,3vw,42px) * var(--scale));
+    font-weight:700;line-height:1.1;letter-spacing:-.02em;
+    color:var(--fg);margin-bottom:18px;
+  }
+  .svc-detail p{font-size:calc(15px * var(--scale));color:var(--fg2);line-height:1.75;margin-bottom:16px;}
+  .svc-detail ul{list-style:none;display:grid;gap:10px;margin-top:20px;}
+  .svc-detail li{
+    font-size:calc(14px * var(--scale));color:var(--fg2);
+    padding-left:24px;position:relative;line-height:1.6;
+  }
+  body[dir="rtl"] .svc-detail li{padding-left:0;padding-right:24px;}
+  .svc-detail li::before{
+    content:'';position:absolute;left:0;top:9px;
+    width:8px;height:8px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+  }
+  body[dir="rtl"] .svc-detail li::before{left:auto;right:0;}
+  .svc-visual{
+    background:var(--surface);border:1px solid var(--border2);border-radius:16px;
+    padding:calc(40px * var(--scale));
+    aspect-ratio:5/4;position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .svc-visual::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 70% 30%,var(--glow) 0%,transparent 60%);
+  }
+  .svc-icon-big{
+    font-size:calc(120px * var(--scale));
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    position:relative;z-index:2;
+  }
+  @media (max-width:900px){
+    .svc-detail{grid-template-columns:1fr;gap:24px;}
+    .svc-detail.flip > div:first-child{order:0;}
+  }
+</style>
+</head>
+<body class="theme-dark fs-2" dir="ltr">
+
+<div id="aq-nav-slot"></div>
+
+<main class="page">
+  <div class="page-eyebrow" data-i18n="page_eyebrow">Our Services</div>
+  <h1 class="page-title display"><span data-i18n="page_title_a">End-to-end services for</span> <span class="hi" data-i18n="page_title_b">ambitious businesses.</span></h1>
+  <p class="page-sub" data-i18n="page_sub">Three core practices, one integrated team. From strategic IT advisory through commerce execution to scaling your engineering bench — we plug in where you need us most.</p>
+
+  <section class="svc-detail" id="it">
+    <div>
+      <div class="svc-detail-num">01 — <span data-i18n="s1_eyebrow">IT &amp; Business Consulting</span></div>
+      <h2 data-i18n="s1_title">Technology aligned to outcomes</h2>
+      <p data-i18n="s1_desc">We help leadership teams cut through complexity. Whether you're modernising legacy systems, evaluating cloud architectures, or building a digital roadmap from scratch — we bring senior expertise and a bias for delivery.</p>
+      <ul>
+        <li data-i18n="s1_l1">Digital transformation strategy &amp; roadmaps</li>
+        <li data-i18n="s1_l2">Cloud architecture &amp; modernisation reviews</li>
+        <li data-i18n="s1_l3">Vendor selection &amp; technology due diligence</li>
+        <li data-i18n="s1_l4">Programme governance &amp; PMO setup</li>
+        <li data-i18n="s1_l5">Data, AI &amp; analytics enablement</li>
+      </ul>
+    </div>
+    <div class="svc-visual"><div class="svc-icon-big">◇</div></div>
+  </section>
+
+  <section class="svc-detail flip" id="commerce">
+    <div>
+      <div class="svc-detail-num">02 — <span data-i18n="s2_eyebrow">Digital Commerce</span></div>
+      <h2 data-i18n="s2_title">Selling everywhere your customers are</h2>
+      <p data-i18n="s2_desc">From the first store launch to multi-marketplace expansion, we take the complexity out of digital commerce. Our team has shipped on every major platform — and knows when to use them.</p>
+      <ul>
+        <li data-i18n="s2_l1">Shopify, WooCommerce &amp; headless commerce builds</li>
+        <li data-i18n="s2_l2">Marketplace operations: Amazon, eBay, Etsy, Wix</li>
+        <li data-i18n="s2_l3">Conversion optimisation &amp; UX audits</li>
+        <li data-i18n="s2_l4">Catalogue, content &amp; merchandising operations</li>
+        <li data-i18n="s2_l5">Performance marketing &amp; analytics integration</li>
+      </ul>
+    </div>
+    <div class="svc-visual"><div class="svc-icon-big">⬡</div></div>
+  </section>
+
+  <section class="svc-detail" id="staff">
+    <div>
+      <div class="svc-detail-num">03 — <span data-i18n="s3_eyebrow">Staff Augmentation</span></div>
+      <h2 data-i18n="s3_title">Senior talent, on demand</h2>
+      <p data-i18n="s3_desc">Skip the months-long hiring cycle. We embed pre-vetted engineers, architects, and digital specialists directly into your team — so you can ship faster without compromising quality.</p>
+      <ul>
+        <li data-i18n="s3_l1">Full-stack &amp; specialist engineering teams</li>
+        <li data-i18n="s3_l2">Cloud, DevOps &amp; platform architects</li>
+        <li data-i18n="s3_l3">Product designers &amp; UX researchers</li>
+        <li data-i18n="s3_l4">Data engineers &amp; analytics specialists</li>
+        <li data-i18n="s3_l5">Flexible engagement models — weeks to years</li>
+      </ul>
+    </div>
+    <div class="svc-visual"><div class="svc-icon-big">△</div></div>
+  </section>
+</main>
+
+<div id="aq-footer-slot"></div>
+
+<script src="assets/aqualeo-shared.js"></script>
+<script>
+const PAGE_DICT = {
+  en: {
+    page_eyebrow:"Our Services",
+    page_title_a:"End-to-end services for", page_title_b:"ambitious businesses.",
+    page_sub:"Three core practices, one integrated team. From strategic IT advisory through commerce execution to scaling your engineering bench — we plug in where you need us most.",
+    s1_eyebrow:"IT & Business Consulting", s1_title:"Technology aligned to outcomes",
+    s1_desc:"We help leadership teams cut through complexity. Whether you're modernising legacy systems, evaluating cloud architectures, or building a digital roadmap from scratch — we bring senior expertise and a bias for delivery.",
+    s1_l1:"Digital transformation strategy & roadmaps", s1_l2:"Cloud architecture & modernisation reviews", s1_l3:"Vendor selection & technology due diligence", s1_l4:"Programme governance & PMO setup", s1_l5:"Data, AI & analytics enablement",
+    s2_eyebrow:"Digital Commerce", s2_title:"Selling everywhere your customers are",
+    s2_desc:"From the first store launch to multi-marketplace expansion, we take the complexity out of digital commerce. Our team has shipped on every major platform — and knows when to use them.",
+    s2_l1:"Shopify, WooCommerce & headless commerce builds", s2_l2:"Marketplace operations: Amazon, eBay, Etsy, Wix", s2_l3:"Conversion optimisation & UX audits", s2_l4:"Catalogue, content & merchandising operations", s2_l5:"Performance marketing & analytics integration",
+    s3_eyebrow:"Staff Augmentation", s3_title:"Senior talent, on demand",
+    s3_desc:"Skip the months-long hiring cycle. We embed pre-vetted engineers, architects, and digital specialists directly into your team — so you can ship faster without compromising quality.",
+    s3_l1:"Full-stack & specialist engineering teams", s3_l2:"Cloud, DevOps & platform architects", s3_l3:"Product designers & UX researchers", s3_l4:"Data engineers & analytics specialists", s3_l5:"Flexible engagement models — weeks to years"
+  },
+  ar: {
+    page_eyebrow:"خدماتنا",
+    page_title_a:"خدمات متكاملة", page_title_b:"للشركات الطموحة.",
+    page_sub:"ثلاث ممارسات أساسية وفريق متكامل. من الاستشارات التقنية الاستراتيجية إلى تنفيذ التجارة الرقمية وتعزيز فرق الهندسة — نلتحم معك حيث تحتاجنا.",
+    s1_eyebrow:"استشارات تقنية وأعمال", s1_title:"تقنية متوائمة مع النتائج",
+    s1_desc:"نساعد القيادة على اختراق التعقيد. سواء كنت تحدّث أنظمة قديمة، أو تقيّم بنى سحابية، أو تبني خارطة رقمية من الصفر — نقدّم خبرة تنفيذية رفيعة المستوى.",
+    s1_l1:"استراتيجية التحول الرقمي وخارطة الطريق", s1_l2:"مراجعات البنية السحابية والتحديث", s1_l3:"اختيار الموردين والعناية الواجبة التقنية", s1_l4:"حوكمة البرامج وإنشاء PMO", s1_l5:"تمكين البيانات والذكاء الاصطناعي والتحليلات",
+    s2_eyebrow:"التجارة الرقمية", s2_title:"البيع أينما يوجد عملاؤك",
+    s2_desc:"من إطلاق المتجر الأول إلى التوسع متعدد الأسواق، نزيل تعقيد التجارة الرقمية. فريقنا أطلق على كل المنصات الكبرى ويعرف متى يستخدم كلًا منها.",
+    s2_l1:"بناء متاجر Shopify وWooCommerce والتجارة Headless", s2_l2:"عمليات الأسواق: Amazon وeBay وEtsy وWix", s2_l3:"تحسين التحويل ومراجعات تجربة المستخدم", s2_l4:"عمليات الكتالوج والمحتوى والتسويق", s2_l5:"تسويق الأداء وتكامل التحليلات",
+    s3_eyebrow:"تعزيز فرق العمل", s3_title:"كفاءات أولى عند الطلب",
+    s3_desc:"تخطّى دورات التوظيف الطويلة. ندمج مهندسين ومعماريين ومتخصصين رقميين معتمدين في فريقك مباشرة — لتشحن أسرع دون التنازل عن الجودة.",
+    s3_l1:"فرق هندسة Full-stack ومتخصصين", s3_l2:"معماريو السحابة وDevOps والمنصات", s3_l3:"مصممو منتجات وباحثو تجربة", s3_l4:"مهندسو بيانات ومتخصصو تحليلات", s3_l5:"نماذج تعاقد مرنة — أسابيع إلى سنوات"
+  },
+  fr: {
+    page_eyebrow:"Nos Services",
+    page_title_a:"Des services de bout en bout pour", page_title_b:"les entreprises ambitieuses.",
+    page_sub:"Trois pratiques, une équipe intégrée. Du conseil IT stratégique à l'exécution commerciale en passant par le renforcement d'équipes — nous intervenons là où vous en avez le plus besoin.",
+    s1_eyebrow:"Conseil IT & Business", s1_title:"La tech alignée sur les résultats",
+    s1_desc:"Nous aidons les directions à trancher dans la complexité. Modernisation, architectures cloud, feuille de route digitale — nous apportons une expertise senior orientée delivery.",
+    s1_l1:"Stratégie & feuille de route de transformation", s1_l2:"Architecture cloud & modernisation", s1_l3:"Sélection de fournisseurs & due diligence", s1_l4:"Gouvernance de programme & PMO", s1_l5:"Activation data, IA & analytics",
+    s2_eyebrow:"Commerce Numérique", s2_title:"Vendre partout où vos clients sont",
+    s2_desc:"Du premier lancement à l'expansion multi-marketplace, nous simplifions le commerce numérique. Notre équipe a livré sur toutes les grandes plateformes.",
+    s2_l1:"Builds Shopify, WooCommerce & headless", s2_l2:"Opérations marketplaces : Amazon, eBay, Etsy, Wix", s2_l3:"Optimisation conversion & audits UX", s2_l4:"Catalogue, contenu & merchandising", s2_l5:"Marketing performance & analytics",
+    s3_eyebrow:"Augmentation d'Effectifs", s3_title:"Des talents seniors, à la demande",
+    s3_desc:"Passez le cycle d'embauche. Nous intégrons des ingénieurs, architectes et spécialistes pré-validés à votre équipe — pour livrer vite, sans compromis.",
+    s3_l1:"Équipes ingénierie full-stack & spécialisées", s3_l2:"Architectes cloud, DevOps & plateformes", s3_l3:"Designers produit & chercheurs UX", s3_l4:"Ingénieurs data & spécialistes analytics", s3_l5:"Modèles d'engagement flexibles — semaines à années"
+  },
+  es: {
+    page_eyebrow:"Nuestros Servicios",
+    page_title_a:"Servicios integrales para", page_title_b:"empresas ambiciosas.",
+    page_sub:"Tres prácticas, un equipo integrado. Del asesoramiento TI estratégico a la ejecución de comercio y la ampliación de equipos — entramos donde más lo necesitas.",
+    s1_eyebrow:"Consultoría TI y Negocios", s1_title:"Tecnología alineada a resultados",
+    s1_desc:"Ayudamos a la dirección a cortar la complejidad. Modernización, arquitecturas cloud o hojas de ruta — aportamos experiencia senior con foco en entregar.",
+    s1_l1:"Estrategia y hoja de ruta de transformación", s1_l2:"Revisiones de arquitectura cloud", s1_l3:"Selección de proveedores y due diligence", s1_l4:"Gobierno de programa y PMO", s1_l5:"Habilitación de datos, IA y analítica",
+    s2_eyebrow:"Comercio Digital", s2_title:"Vender donde están tus clientes",
+    s2_desc:"Del primer lanzamiento a la expansión multi-marketplace, simplificamos el comercio digital. Nuestro equipo ha entregado en todas las plataformas grandes.",
+    s2_l1:"Builds Shopify, WooCommerce y headless", s2_l2:"Operaciones marketplaces: Amazon, eBay, Etsy, Wix", s2_l3:"Optimización de conversión y auditorías UX", s2_l4:"Catálogo, contenido y merchandising", s2_l5:"Marketing de performance y analítica",
+    s3_eyebrow:"Aumento de Equipos", s3_title:"Talento senior, bajo demanda",
+    s3_desc:"Sáltate el ciclo de contratación. Integramos ingenieros, arquitectos y especialistas pre-validados directamente en tu equipo — para entregar rápido sin sacrificar calidad.",
+    s3_l1:"Equipos full-stack y especializados", s3_l2:"Arquitectos cloud, DevOps y plataformas", s3_l3:"Diseñadores de producto e investigadores UX", s3_l4:"Ingenieros de datos y especialistas en analítica", s3_l5:"Modelos de contratación flexibles — semanas a años"
+  }
+};
+AQ_renderChrome('services');
+AQ_initChrome(PAGE_DICT);
+</script>
+</body>
+</html>
